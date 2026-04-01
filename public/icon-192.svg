@@ -1,0 +1,22 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="32" fill="#0D0D0C"/>
+  <!-- Left ear -->
+  <path d="M44 52 L63 78 L33 74 Z" fill="#C8A44E" opacity="0.55"/>
+  <!-- Right ear -->
+  <path d="M148 52 L159 74 L129 78 Z" fill="#C8A44E" opacity="0.55"/>
+  <!-- Eye glow -->
+  <ellipse cx="69" cy="93" rx="22" ry="14" fill="#C8A44E" opacity="0.1"/>
+  <ellipse cx="123" cy="93" rx="22" ry="14" fill="#C8A44E" opacity="0.1"/>
+  <!-- Left eye -->
+  <ellipse cx="69" cy="93" rx="15" ry="9" fill="#C8A44E"/>
+  <ellipse cx="70" cy="92" rx="5.5" ry="5.5" fill="#E8E4D8"/>
+  <ellipse cx="71" cy="92" rx="2.8" ry="3.5" fill="#0D0D0C"/>
+  <!-- Right eye -->
+  <ellipse cx="123" cy="93" rx="15" ry="9" fill="#C8A44E"/>
+  <ellipse cx="124" cy="92" rx="5.5" ry="5.5" fill="#E8E4D8"/>
+  <ellipse cx="125" cy="92" rx="2.8" ry="3.5" fill="#0D0D0C"/>
+  <!-- Shadow curve -->
+  <path d="M48 120 Q96 148 144 120" stroke="#C8A44E" stroke-width="1.5" opacity="0.15" fill="none"/>
+  <!-- SHADE text -->
+  <text x="96" y="162" text-anchor="middle" fill="#C8A44E" font-family="sans-serif" font-size="22" font-weight="700" letter-spacing="6">SHADE</text>
+</svg>

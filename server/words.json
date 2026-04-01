@@ -1,0 +1,7486 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "totalCategories": 16,
+    "developer": "Ramazan (FS5 — Ellin MMC)",
+    "imageNote": "Sekilleri yuklemek ucun SHADE_Image_Downloader.js scriptini islet. Script her soz ucun Pexels API-den sekil tapib image sahesine yazacaq.",
+    "totalWords": 1220
+  },
+  "fs5_config": {
+    "citizenName": "Zorbalayıcı",
+    "imposterName": "Şübhəli",
+    "defaultCitizenName": "Vətəndaş",
+    "defaultImposterName": "İmposter",
+    "activationCode": "ELLINFS5",
+    "duration_months": 6
+  },
+  "categories": [
+    {
+      "id": "yemekler",
+      "nameAz": "Yeməklər",
+      "nameEn": "Foods",
+      "icon": "🍕",
+      "isPremium": false
+    },
+    {
+      "id": "heyvanlar",
+      "nameAz": "Heyvanlar",
+      "nameEn": "Animals",
+      "icon": "🐾",
+      "isPremium": false
+    },
+    {
+      "id": "texnologiya",
+      "nameAz": "Texnologiya",
+      "nameEn": "Technology",
+      "icon": "💻",
+      "isPremium": false
+    },
+    {
+      "id": "idman",
+      "nameAz": "İdman",
+      "nameEn": "Sports",
+      "icon": "⚽",
+      "isPremium": false
+    },
+    {
+      "id": "olkeler",
+      "nameAz": "Ölkələr",
+      "nameEn": "Countries",
+      "icon": "🌍",
+      "isPremium": false
+    },
+    {
+      "id": "peseler",
+      "nameAz": "Peşələr",
+      "nameEn": "Professions",
+      "icon": "👨‍⚕️",
+      "isPremium": false
+    },
+    {
+      "id": "film",
+      "nameAz": "Film & Serial",
+      "nameEn": "Movies & TV",
+      "icon": "🎬",
+      "isPremium": false
+    },
+    {
+      "id": "musiqi",
+      "nameAz": "Musiqi",
+      "nameEn": "Music",
+      "icon": "🎵",
+      "isPremium": false
+    },
+    {
+      "id": "tebiet",
+      "nameAz": "Təbiət",
+      "nameEn": "Nature",
+      "icon": "🌿",
+      "isPremium": false
+    },
+    {
+      "id": "neqliyyat",
+      "nameAz": "Nəqliyyat",
+      "nameEn": "Transport",
+      "icon": "🚗",
+      "isPremium": false
+    },
+    {
+      "id": "geyim",
+      "nameAz": "Geyim & Aksesuar",
+      "nameEn": "Clothing",
+      "icon": "👔",
+      "isPremium": false
+    },
+    {
+      "id": "mekteb",
+      "nameAz": "Məktəb & Təhsil",
+      "nameEn": "School",
+      "icon": "📚",
+      "isPremium": false
+    },
+    {
+      "id": "ev",
+      "nameAz": "Ev əşyaları",
+      "nameEn": "Home Items",
+      "icon": "🏠",
+      "isPremium": false
+    },
+    {
+      "id": "saglamliq",
+      "nameAz": "Sağlamlıq",
+      "nameEn": "Health",
+      "icon": "🏥",
+      "isPremium": false
+    },
+    {
+      "id": "kosmos",
+      "nameAz": "Kosmos & Elm",
+      "nameEn": "Space & Science",
+      "icon": "🔬",
+      "isPremium": false
+    },
+    {
+      "id": "proqramlasma",
+      "nameAz": "Proqramlaşdırma",
+      "nameEn": "Programming",
+      "icon": "🖥️",
+      "isPremium": true,
+      "fs5Only": true
+    }
+  ],
+  "words": {
+    "yemekler": [
+      {
+        "az": "Pizza",
+        "en": "Pizza",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Plov",
+        "en": "Pilaf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dolma",
+        "en": "Dolma",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kebab",
+        "en": "Kebab",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şorba",
+        "en": "Soup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pasta",
+        "en": "Pasta",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Burger",
+        "en": "Burger",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Suşi",
+        "en": "Sushi",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dondurma",
+        "en": "Ice Cream",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tort",
+        "en": "Cake",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çörək",
+        "en": "Bread",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pendir",
+        "en": "Cheese",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yumurta",
+        "en": "Egg",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bal",
+        "en": "Honey",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şokolad",
+        "en": "Chocolate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lavaş",
+        "en": "Lavash",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qutab",
+        "en": "Qutab",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Düşbərə",
+        "en": "Dushbara",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Paxlava",
+        "en": "Baklava",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Toyuq",
+        "en": "Chicken",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bifşteks",
+        "en": "Steak",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Salat",
+        "en": "Salad",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pomidor",
+        "en": "Tomato",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xiyar",
+        "en": "Cucumber",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kartof",
+        "en": "Potato",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Düyü",
+        "en": "Rice",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Makaron",
+        "en": "Macaroni",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sosis",
+        "en": "Sausage",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kotlet",
+        "en": "Cutlet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Manqal",
+        "en": "Grill",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Samsa",
+        "en": "Samosa",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Piroq",
+        "en": "Pie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Blinçik",
+        "en": "Pancake",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Omlet",
+        "en": "Omelette",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çay",
+        "en": "Tea",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qəhvə",
+        "en": "Coffee",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Limonad",
+        "en": "Lemonade",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ayran",
+        "en": "Ayran",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Alma",
+        "en": "Apple",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Armud",
+        "en": "Pear",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Portağal",
+        "en": "Orange",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Banan",
+        "en": "Banana",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Üzüm",
+        "en": "Grape",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qarpız",
+        "en": "Watermelon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Nar",
+        "en": "Pomegranate",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Əncir",
+        "en": "Fig",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fındıq",
+        "en": "Hazelnut",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Badam",
+        "en": "Almond",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qoz",
+        "en": "Walnut",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kərə yağı",
+        "en": "Butter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Zeytun",
+        "en": "Olive",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bibər",
+        "en": "Pepper",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Soğan",
+        "en": "Onion",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sarımsaq",
+        "en": "Garlic",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaymaq",
+        "en": "Cream",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Zəfəran",
+        "en": "Saffron",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Darçın",
+        "en": "Cinnamon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nanə",
+        "en": "Mint",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Badımcan",
+        "en": "Eggplant",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Lobya",
+        "en": "Bean",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xörək",
+        "en": "Stew",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bal kabağı",
+        "en": "Pumpkin",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şəkərbura",
+        "en": "Shekerbura",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xaş",
+        "en": "Khash",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bozbaş",
+        "en": "Bozbash",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Lülə kebab",
+        "en": "Lula Kebab",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xəngəl",
+        "en": "Khangal",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kompot",
+        "en": "Compote",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Meyvə",
+        "en": "Fruit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yemiş",
+        "en": "Melon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kişmiş",
+        "en": "Raisin",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İstiot",
+        "en": "Hot Pepper",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kəklikotu",
+        "en": "Thyme",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Suxarı",
+        "en": "Cracker",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kökə",
+        "en": "Cookie",
+        "image": null,
+        "difficulty": 2
+      }
+    ],
+    "heyvanlar": [
+      {
+        "az": "İt",
+        "en": "Dog",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pişik",
+        "en": "Cat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "At",
+        "en": "Horse",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İnək",
+        "en": "Cow",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qoyun",
+        "en": "Sheep",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Keçi",
+        "en": "Goat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dovşan",
+        "en": "Rabbit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tülkü",
+        "en": "Fox",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ayı",
+        "en": "Bear",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Canavar",
+        "en": "Wolf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aslan",
+        "en": "Lion",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pələng",
+        "en": "Tiger",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fil",
+        "en": "Elephant",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Zürafə",
+        "en": "Giraffe",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Meymun",
+        "en": "Monkey",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Delfin",
+        "en": "Dolphin",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Balina",
+        "en": "Whale",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Köpəkbalığı",
+        "en": "Shark",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Timsah",
+        "en": "Crocodile",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İlan",
+        "en": "Snake",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kərtənkələ",
+        "en": "Lizard",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tısbağa",
+        "en": "Turtle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qurbağa",
+        "en": "Frog",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qartal",
+        "en": "Eagle",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tutuquşu",
+        "en": "Parrot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bayquş",
+        "en": "Owl",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Göyərçin",
+        "en": "Pigeon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaranquş",
+        "en": "Swallow",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Toyuq",
+        "en": "Hen",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ördək",
+        "en": "Duck",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaz",
+        "en": "Goose",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hörümçək",
+        "en": "Spider",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Arı",
+        "en": "Bee",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kəpənək",
+        "en": "Butterfly",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Milçək",
+        "en": "Fly",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ağcaqanad",
+        "en": "Mosquito",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qarışqa",
+        "en": "Ant",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İlbiz",
+        "en": "Snail",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ahtapot",
+        "en": "Octopus",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Penguen",
+        "en": "Penguin",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Flamingo",
+        "en": "Flamingo",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Zebra",
+        "en": "Zebra",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bəbir",
+        "en": "Leopard",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çita",
+        "en": "Cheetah",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sırtlan",
+        "en": "Hyena",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kərgədan",
+        "en": "Rhino",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Su atı",
+        "en": "Hippopotamus",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Koala",
+        "en": "Koala",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kenguru",
+        "en": "Kangaroo",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Panda",
+        "en": "Panda",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qunduz",
+        "en": "Beaver",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kirpi",
+        "en": "Hedgehog",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dələ",
+        "en": "Weasel",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Maral",
+        "en": "Deer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ceyran",
+        "en": "Gazelle",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çöl donuzu",
+        "en": "Wild Boar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bizon",
+        "en": "Bison",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qoç",
+        "en": "Ram",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dana",
+        "en": "Calf",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sərçə",
+        "en": "Sparrow",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qarğa",
+        "en": "Crow",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Leylək",
+        "en": "Stork",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Durna",
+        "en": "Crane",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Alabalıq",
+        "en": "Trout",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qızılbalıq",
+        "en": "Salmon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Karp",
+        "en": "Carp",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xərçəng",
+        "en": "Crab",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Midya",
+        "en": "Mussel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Böcək",
+        "en": "Bug",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəniz atı",
+        "en": "Seahorse",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Samur",
+        "en": "Marten",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Papağan",
+        "en": "Parrot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yak",
+        "en": "Yak",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Buqələmun",
+        "en": "Chameleon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Soxulcan",
+        "en": "Worm",
+        "image": null,
+        "difficulty": 2
+      }
+    ],
+    "texnologiya": [
+      {
+        "az": "Kompüter",
+        "en": "Computer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Telefon",
+        "en": "Phone",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Planşet",
+        "en": "Tablet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Laptop",
+        "en": "Laptop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Monitor",
+        "en": "Monitor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Klaviatura",
+        "en": "Keyboard",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Siçan",
+        "en": "Mouse",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Printer",
+        "en": "Printer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Skaner",
+        "en": "Scanner",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kamera",
+        "en": "Camera",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dron",
+        "en": "Drone",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Robot",
+        "en": "Robot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İnternet",
+        "en": "Internet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "WiFi",
+        "en": "WiFi",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bluetooth",
+        "en": "Bluetooth",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Proqram",
+        "en": "Software",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tətbiq",
+        "en": "App",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Oyun",
+        "en": "Game",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sayt",
+        "en": "Website",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Brauzer",
+        "en": "Browser",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Server",
+        "en": "Server",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bulud",
+        "en": "Cloud",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Haker",
+        "en": "Hacker",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Virus",
+        "en": "Virus",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Parol",
+        "en": "Password",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şifrə",
+        "en": "Encryption",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ekran",
+        "en": "Screen",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Batareya",
+        "en": "Battery",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Adapter",
+        "en": "Adapter",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kabel",
+        "en": "Cable",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "USB",
+        "en": "USB",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Prosessor",
+        "en": "Processor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yaddaş",
+        "en": "Memory",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Disk",
+        "en": "Disk",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "SSD",
+        "en": "SSD",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "GPU",
+        "en": "GPU",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Piksel",
+        "en": "Pixel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kod",
+        "en": "Code",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Alqoritm",
+        "en": "Algorithm",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Bug",
+        "en": "Bug",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Update",
+        "en": "Update",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Download",
+        "en": "Download",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Upload",
+        "en": "Upload",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stream",
+        "en": "Stream",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Podcast",
+        "en": "Podcast",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Blog",
+        "en": "Blog",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Email",
+        "en": "Email",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mesaj",
+        "en": "Message",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Video",
+        "en": "Video",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Foto",
+        "en": "Photo",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Filtr",
+        "en": "Filter",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "AI",
+        "en": "Artificial Intelligence",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "VR",
+        "en": "Virtual Reality",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çip",
+        "en": "Chip",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sensor",
+        "en": "Sensor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "GPS",
+        "en": "GPS",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Radar",
+        "en": "Radar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Antenna",
+        "en": "Antenna",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Modem",
+        "en": "Modem",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Router",
+        "en": "Router",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Domain",
+        "en": "Domain",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "HTML",
+        "en": "HTML",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "CSS",
+        "en": "CSS",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Python",
+        "en": "Python",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "React",
+        "en": "React",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Git",
+        "en": "Git",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "API",
+        "en": "API",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Linux",
+        "en": "Linux",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Windows",
+        "en": "Windows",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Android",
+        "en": "Android",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "iOS",
+        "en": "iOS",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Chrome",
+        "en": "Chrome",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Smartfon",
+        "en": "Smartphone",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Smartsaat",
+        "en": "Smartwatch",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qulaqlıq",
+        "en": "Headphones",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mikrofon",
+        "en": "Microphone",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "idman": [
+      {
+        "az": "Futbol",
+        "en": "Football",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Basketbol",
+        "en": "Basketball",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Voleybol",
+        "en": "Volleyball",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tennis",
+        "en": "Tennis",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Üzgüçülük",
+        "en": "Swimming",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boks",
+        "en": "Boxing",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Güləş",
+        "en": "Wrestling",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Karate",
+        "en": "Karate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cüdo",
+        "en": "Judo",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Atletika",
+        "en": "Athletics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Gimnastika",
+        "en": "Gymnastics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şahmat",
+        "en": "Chess",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Velosiped",
+        "en": "Cycling",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaçış",
+        "en": "Running",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tullanma",
+        "en": "Jumping",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ağırlıq",
+        "en": "Weightlifting",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fitnes",
+        "en": "Fitness",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yoga",
+        "en": "Yoga",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hokkey",
+        "en": "Hockey",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Reqbi",
+        "en": "Rugby",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kriket",
+        "en": "Cricket",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qolf",
+        "en": "Golf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Beysbol",
+        "en": "Baseball",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bilyard",
+        "en": "Billiards",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Boulinq",
+        "en": "Bowling",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dart",
+        "en": "Darts",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Eskrim",
+        "en": "Fencing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Buz xizəyi",
+        "en": "Ice Skating",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xizək",
+        "en": "Skiing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Snoubord",
+        "en": "Snowboard",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sörfinq",
+        "en": "Surfing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yelkən",
+        "en": "Sailing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Badminton",
+        "en": "Badminton",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ping-pong",
+        "en": "Table Tennis",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Marafon",
+        "en": "Marathon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sprint",
+        "en": "Sprint",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Stadion",
+        "en": "Stadium",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Meydança",
+        "en": "Field",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hakim",
+        "en": "Referee",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qol",
+        "en": "Goal",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Penalti",
+        "en": "Penalty",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Faul",
+        "en": "Foul",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ofsayd",
+        "en": "Offside",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kubok",
+        "en": "Cup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Medal",
+        "en": "Medal",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çempion",
+        "en": "Champion",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rekord",
+        "en": "Record",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Olimpiada",
+        "en": "Olympics",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Final",
+        "en": "Final",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Liqqa",
+        "en": "League",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Komanda",
+        "en": "Team",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kapitan",
+        "en": "Captain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Məşqçi",
+        "en": "Coach",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Transfer",
+        "en": "Transfer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Azarkeş",
+        "en": "Fan",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tribuna",
+        "en": "Stand",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Matç",
+        "en": "Match",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Top",
+        "en": "Ball",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Raket",
+        "en": "Racket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qapıçı",
+        "en": "Goalkeeper",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hücum",
+        "en": "Attack",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Müdafiə",
+        "en": "Defense",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yarış",
+        "en": "Race",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Turnir",
+        "en": "Tournament",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Korner",
+        "en": "Corner",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Forma",
+        "en": "Jersey",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çalım",
+        "en": "Dribble",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Pas",
+        "en": "Pass",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şut",
+        "en": "Shot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fasilə",
+        "en": "Halftime",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Əvəzetmə",
+        "en": "Substitution",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Debüt",
+        "en": "Debut",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Trener",
+        "en": "Trainer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sıravi",
+        "en": "Rank",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Aut",
+        "en": "Out",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kartoçka",
+        "en": "Card",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "olkeler": [
+      {
+        "az": "Azərbaycan",
+        "en": "Azerbaijan",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Türkiyə",
+        "en": "Turkey",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gürcüstan",
+        "en": "Georgia",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rusiya",
+        "en": "Russia",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İran",
+        "en": "Iran",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "ABŞ",
+        "en": "USA",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kanada",
+        "en": "Canada",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Braziliya",
+        "en": "Brazil",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Argentina",
+        "en": "Argentina",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Meksika",
+        "en": "Mexico",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Almaniya",
+        "en": "Germany",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fransa",
+        "en": "France",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İtaliya",
+        "en": "Italy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İspaniya",
+        "en": "Spain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Portuqaliya",
+        "en": "Portugal",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İngiltərə",
+        "en": "England",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İrlandiya",
+        "en": "Ireland",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İsveçrə",
+        "en": "Switzerland",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Avstriya",
+        "en": "Austria",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Hollandiya",
+        "en": "Netherlands",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Belçika",
+        "en": "Belgium",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Polşa",
+        "en": "Poland",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çexiya",
+        "en": "Czech Republic",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Macarıstan",
+        "en": "Hungary",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Rumıniya",
+        "en": "Romania",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yunanıstan",
+        "en": "Greece",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Misir",
+        "en": "Egypt",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mərakeş",
+        "en": "Morocco",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cənubi Afrika",
+        "en": "South Africa",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nigeriya",
+        "en": "Nigeria",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Keniya",
+        "en": "Kenya",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çin",
+        "en": "China",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yaponiya",
+        "en": "Japan",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cənubi Koreya",
+        "en": "South Korea",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hindistan",
+        "en": "India",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pakistan",
+        "en": "Pakistan",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İndoneziya",
+        "en": "Indonesia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tailand",
+        "en": "Thailand",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Vyetnam",
+        "en": "Vietnam",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Avstraliya",
+        "en": "Australia",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yeni Zelandiya",
+        "en": "New Zealand",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Norveç",
+        "en": "Norway",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İsveç",
+        "en": "Sweden",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Finlandiya",
+        "en": "Finland",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Danimarka",
+        "en": "Denmark",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İslandiya",
+        "en": "Iceland",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ukrayna",
+        "en": "Ukraine",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qazaxıstan",
+        "en": "Kazakhstan",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Özbəkistan",
+        "en": "Uzbekistan",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Əfqanıstan",
+        "en": "Afghanistan",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İraq",
+        "en": "Iraq",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Səudiyyə",
+        "en": "Saudi Arabia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "BƏƏ",
+        "en": "UAE",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qətər",
+        "en": "Qatar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İsrail",
+        "en": "Israel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Livan",
+        "en": "Lebanon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kolumbiya",
+        "en": "Colombia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Peru",
+        "en": "Peru",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çili",
+        "en": "Chile",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Venesuela",
+        "en": "Venezuela",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kuba",
+        "en": "Cuba",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Filippin",
+        "en": "Philippines",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Malayziya",
+        "en": "Malaysia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sinqapur",
+        "en": "Singapore",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Monqolustan",
+        "en": "Mongolia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nepal",
+        "en": "Nepal",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şri Lanka",
+        "en": "Sri Lanka",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Efiopiya",
+        "en": "Ethiopia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Küveyt",
+        "en": "Kuwait",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Oman",
+        "en": "Oman",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Xorvatiya",
+        "en": "Croatia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Serbiya",
+        "en": "Serbia",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sloveniya",
+        "en": "Slovenia",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Slovakiya",
+        "en": "Slovakia",
+        "image": null,
+        "difficulty": 3
+      }
+    ],
+    "peseler": [
+      {
+        "az": "Həkim",
+        "en": "Doctor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Müəllim",
+        "en": "Teacher",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mühəndis",
+        "en": "Engineer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Proqramçı",
+        "en": "Programmer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aşbaz",
+        "en": "Chef",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Polis",
+        "en": "Police Officer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yanğınsöndürən",
+        "en": "Firefighter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pilot",
+        "en": "Pilot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Astronavt",
+        "en": "Astronaut",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Hüquqşünas",
+        "en": "Lawyer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Memar",
+        "en": "Architect",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dizayner",
+        "en": "Designer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Jurnalist",
+        "en": "Journalist",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aktyor",
+        "en": "Actor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Müğənni",
+        "en": "Singer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rəssam",
+        "en": "Painter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fotoqraf",
+        "en": "Photographer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kapitan",
+        "en": "Captain",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sürücü",
+        "en": "Driver",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təyyarəçi",
+        "en": "Aviator",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Baytarlıq",
+        "en": "Veterinarian",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Əczaçı",
+        "en": "Pharmacist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tibb bacısı",
+        "en": "Nurse",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cərrah",
+        "en": "Surgeon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Psixoloq",
+        "en": "Psychologist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mühasib",
+        "en": "Accountant",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bankir",
+        "en": "Banker",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sahibkar",
+        "en": "Entrepreneur",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Satıcı",
+        "en": "Salesperson",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ofisiant",
+        "en": "Waiter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bərbər",
+        "en": "Barber",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dərzi",
+        "en": "Tailor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çörəkçi",
+        "en": "Baker",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Balıqçı",
+        "en": "Fisherman",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fermer",
+        "en": "Farmer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bağban",
+        "en": "Gardener",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dülgər",
+        "en": "Carpenter",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Elektrik",
+        "en": "Electrician",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Santexnik",
+        "en": "Plumber",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Rəqqas",
+        "en": "Dancer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rejissor",
+        "en": "Director",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Operator",
+        "en": "Cameraman",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tərcüməçi",
+        "en": "Translator",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Diplomatr",
+        "en": "Diplomat",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Hakim",
+        "en": "Judge",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kitabxanaçı",
+        "en": "Librarian",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Poçtalyon",
+        "en": "Postman",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Taksi",
+        "en": "Taxi Driver",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "General",
+        "en": "General",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kosmonavt",
+        "en": "Cosmonaut",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dənizçi",
+        "en": "Sailor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gömrükçü",
+        "en": "Customs Officer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qəssab",
+        "en": "Butcher",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Konditer",
+        "en": "Confectioner",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dadaş",
+        "en": "Nanny",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Musiqi müəllimi",
+        "en": "Music Teacher",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Heykəltəraş",
+        "en": "Sculptor",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Yazıçı",
+        "en": "Writer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şair",
+        "en": "Poet",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bloger",
+        "en": "Blogger",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Oyun dizayneri",
+        "en": "Game Designer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Data analitik",
+        "en": "Data Analyst",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Marketoloq",
+        "en": "Marketer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "HR menecer",
+        "en": "HR Manager",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Saatçı",
+        "en": "Watchmaker",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Zərgər",
+        "en": "Jeweler",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Modelyer",
+        "en": "Fashion Designer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İdmançı",
+        "en": "Athlete",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boksçu",
+        "en": "Boxer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Futbolçu",
+        "en": "Footballer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Üzgüçü",
+        "en": "Swimmer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gimnast",
+        "en": "Gymnast",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Alpinist",
+        "en": "Climber",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dalğıc",
+        "en": "Diver",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kuryer",
+        "en": "Courier",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qarovulçu",
+        "en": "Security Guard",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "film": [
+      {
+        "az": "Rejissor",
+        "en": "Director",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aktyor",
+        "en": "Actor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aktrisa",
+        "en": "Actress",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ssenari",
+        "en": "Screenplay",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kamera",
+        "en": "Camera",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Montaj",
+        "en": "Editing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Efir",
+        "en": "Broadcast",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Serial",
+        "en": "TV Series",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Film",
+        "en": "Movie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Komediya",
+        "en": "Comedy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dram",
+        "en": "Drama",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qorxu",
+        "en": "Horror",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fantastika",
+        "en": "Sci-Fi",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cizgi filmi",
+        "en": "Animation",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sənədli",
+        "en": "Documentary",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Premyera",
+        "en": "Premiere",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Oskar",
+        "en": "Oscar",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rol",
+        "en": "Role",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Epizod",
+        "en": "Episode",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sezon",
+        "en": "Season",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Treylor",
+        "en": "Trailer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dublyaj",
+        "en": "Dubbing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Subtitrl",
+        "en": "Subtitle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ekran",
+        "en": "Screen",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kinotetatr",
+        "en": "Cinema",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Popkorn",
+        "en": "Popcorn",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bilet",
+        "en": "Ticket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Afişa",
+        "en": "Poster",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Soundtrack",
+        "en": "Soundtrack",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kaskadyor",
+        "en": "Stuntman",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qrimer",
+        "en": "Makeup Artist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Prodüser",
+        "en": "Producer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Operator",
+        "en": "Cinematographer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Seans",
+        "en": "Screening",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xüsusi effekt",
+        "en": "Special Effect",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "3D film",
+        "en": "3D Movie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Anime",
+        "en": "Anime",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Manga",
+        "en": "Manga",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bədii film",
+        "en": "Feature Film",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qısa film",
+        "en": "Short Film",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Triloji",
+        "en": "Trilogy",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Siquel",
+        "en": "Sequel",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Priquel",
+        "en": "Prequel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Remeyik",
+        "en": "Remake",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Spin-off",
+        "en": "Spin-off",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kastinq",
+        "en": "Casting",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ssenariçi",
+        "en": "Screenwriter",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Çəkiliş",
+        "en": "Filming",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pavilyon",
+        "en": "Studio",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dekorasiya",
+        "en": "Set Design",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kostüm",
+        "en": "Costume",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qrimm",
+        "en": "Makeup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İşıq",
+        "en": "Lighting",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mikrofon",
+        "en": "Microphone",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dublyor",
+        "en": "Double",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fraqment",
+        "en": "Clip",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Titr",
+        "en": "Credits",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Flashback",
+        "en": "Flashback",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Plot",
+        "en": "Plot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Janr",
+        "en": "Genre",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Suspens",
+        "en": "Suspense",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Klişe",
+        "en": "Cliche",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bloqbaster",
+        "en": "Blockbuster",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İndi film",
+        "en": "Indie Film",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Festival",
+        "en": "Festival",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mükafat",
+        "en": "Award",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Nominasiya",
+        "en": "Nomination",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Jüri",
+        "en": "Jury",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kino salonu",
+        "en": "Theater",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "IMAX",
+        "en": "IMAX",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dublyaj aktyor",
+        "en": "Voice Actor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Antaqonist",
+        "en": "Antagonist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Protagonist",
+        "en": "Protagonist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kliffhenger",
+        "en": "Cliffhanger",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cameo",
+        "en": "Cameo",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Final",
+        "en": "Finale",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pilot seriya",
+        "en": "Pilot Episode",
+        "image": null,
+        "difficulty": 2
+      }
+    ],
+    "musiqi": [
+      {
+        "az": "Gitara",
+        "en": "Guitar",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Piano",
+        "en": "Piano",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Skripka",
+        "en": "Violin",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Baraban",
+        "en": "Drums",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fleyta",
+        "en": "Flute",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Truba",
+        "en": "Trumpet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Saksofon",
+        "en": "Saxophone",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tar",
+        "en": "Tar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kamança",
+        "en": "Kamancha",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Saz",
+        "en": "Saz",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nağara",
+        "en": "Nagara",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Balaban",
+        "en": "Balaban",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Zurna",
+        "en": "Zurna",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qarmon",
+        "en": "Accordion",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Arfa",
+        "en": "Harp",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bas gitara",
+        "en": "Bass Guitar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sintezator",
+        "en": "Synthesizer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mikrofon",
+        "en": "Microphone",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mahnı",
+        "en": "Song",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Melodiya",
+        "en": "Melody",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ritm",
+        "en": "Rhythm",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Not",
+        "en": "Note",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Akkord",
+        "en": "Chord",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Albom",
+        "en": "Album",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Konsert",
+        "en": "Concert",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Caz",
+        "en": "Jazz",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Rok",
+        "en": "Rock",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pop",
+        "en": "Pop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hip-hop",
+        "en": "Hip Hop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Klassik",
+        "en": "Classical",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Muğam",
+        "en": "Mugham",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xalq musiqisi",
+        "en": "Folk Music",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Elektron",
+        "en": "Electronic",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Rəqs",
+        "en": "Dance",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dirijor",
+        "en": "Conductor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Orkestr",
+        "en": "Orchestra",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Xor",
+        "en": "Choir",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Solo",
+        "en": "Solo",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Duet",
+        "en": "Duet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Trio",
+        "en": "Trio",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bəstəkar",
+        "en": "Composer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Müğənni",
+        "en": "Singer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Reper",
+        "en": "Rapper",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "DJ",
+        "en": "DJ",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Klip",
+        "en": "Music Video",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Playlist",
+        "en": "Playlist",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Refrein",
+        "en": "Chorus",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kuplet",
+        "en": "Verse",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tenor",
+        "en": "Tenor",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Soprano",
+        "en": "Soprano",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Forte",
+        "en": "Forte",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Stakkato",
+        "en": "Staccato",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Leqato",
+        "en": "Legato",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Tempo",
+        "en": "Tempo",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tonal",
+        "en": "Key",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Səhnə",
+        "en": "Stage",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Turne",
+        "en": "Tour",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Festivalr",
+        "en": "Festival",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hit",
+        "en": "Hit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sinql",
+        "en": "Single",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Remiks",
+        "en": "Remix",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bit",
+        "en": "Beat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lirika",
+        "en": "Lyrics",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aranjemanr",
+        "en": "Arrangement",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Produserr",
+        "en": "Producer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Studiya",
+        "en": "Studio",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yazılma",
+        "en": "Recording",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Miksaj",
+        "en": "Mixing",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Masterinq",
+        "en": "Mastering",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Səs",
+        "en": "Sound",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dinamika",
+        "en": "Dynamics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Harmoniya",
+        "en": "Harmony",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İmprovizasiya",
+        "en": "Improvisation",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Karaoke",
+        "en": "Karaoke",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Opera",
+        "en": "Opera",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Balet",
+        "en": "Ballet",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Simfoniya",
+        "en": "Symphony",
+        "image": null,
+        "difficulty": 3
+      }
+    ],
+    "tebiet": [
+      {
+        "az": "Dağ",
+        "en": "Mountain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəniz",
+        "en": "Sea",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çay",
+        "en": "River",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Göl",
+        "en": "Lake",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Meşə",
+        "en": "Forest",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çöl",
+        "en": "Desert",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ada",
+        "en": "Island",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vulkan",
+        "en": "Volcano",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şəlalə",
+        "en": "Waterfall",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mağara",
+        "en": "Cave",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qaya",
+        "en": "Rock",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Torpaq",
+        "en": "Soil",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qum",
+        "en": "Sand",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Buz",
+        "en": "Ice",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qar",
+        "en": "Snow",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yağış",
+        "en": "Rain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dolu",
+        "en": "Hail",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tufan",
+        "en": "Storm",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İldırım",
+        "en": "Lightning",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Göy qurşağı",
+        "en": "Rainbow",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Günəş",
+        "en": "Sun",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ay",
+        "en": "Moon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ulduz",
+        "en": "Star",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bulud",
+        "en": "Cloud",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Külək",
+        "en": "Wind",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Duman",
+        "en": "Fog",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çiçək",
+        "en": "Flower",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ağac",
+        "en": "Tree",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ot",
+        "en": "Grass",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yarpaq",
+        "en": "Leaf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kök",
+        "en": "Root",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Meyvə",
+        "en": "Fruit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Toxum",
+        "en": "Seed",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Budaq",
+        "en": "Branch",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kol",
+        "en": "Bush",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mamır",
+        "en": "Moss",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Göbələk",
+        "en": "Mushroom",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kaktus",
+        "en": "Cactus",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Palma",
+        "en": "Palm Tree",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şam ağacı",
+        "en": "Pine Tree",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Okyanus",
+        "en": "Ocean",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Körfəz",
+        "en": "Bay",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Boğaz",
+        "en": "Strait",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sahil",
+        "en": "Beach",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dalğa",
+        "en": "Wave",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gel-git",
+        "en": "Tide",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mercan",
+        "en": "Coral",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Plankton",
+        "en": "Plankton",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Vadi",
+        "en": "Valley",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təpə",
+        "en": "Hill",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Düzənlik",
+        "en": "Plain",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Bataqlıq",
+        "en": "Swamp",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Vaxa",
+        "en": "Oasis",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Buzlaq",
+        "en": "Glacier",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yarğan",
+        "en": "Canyon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Zəlzələ",
+        "en": "Earthquake",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sunami",
+        "en": "Tsunami",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qasırğa",
+        "en": "Hurricane",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tornado",
+        "en": "Tornado",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Laylay",
+        "en": "Lava",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kraterlər",
+        "en": "Crater",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fossil",
+        "en": "Fossil",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mineral",
+        "en": "Mineral",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kristal",
+        "en": "Crystal",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Oksigen",
+        "en": "Oxygen",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Karbon",
+        "en": "Carbon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Atmosfer",
+        "en": "Atmosphere",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ekoloji",
+        "en": "Ecology",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İqlim",
+        "en": "Climate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təbiət",
+        "en": "Nature",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hava",
+        "en": "Weather",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Temperatur",
+        "en": "Temperature",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rütubət",
+        "en": "Humidity",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Horizont",
+        "en": "Horizon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şafaq",
+        "en": "Dawn",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qürub",
+        "en": "Sunset",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "neqliyyat": [
+      {
+        "az": "Avtomobil",
+        "en": "Car",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Avtobus",
+        "en": "Bus",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Taksi",
+        "en": "Taxi",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qatar",
+        "en": "Train",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tramvay",
+        "en": "Tram",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Metro",
+        "en": "Metro",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Velosiped",
+        "en": "Bicycle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Motosiklet",
+        "en": "Motorcycle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yük maşını",
+        "en": "Truck",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Traktor",
+        "en": "Tractor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təyyarə",
+        "en": "Airplane",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Helikopter",
+        "en": "Helicopter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Raket",
+        "en": "Rocket",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Gəmi",
+        "en": "Ship",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qayıq",
+        "en": "Boat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yaxt",
+        "en": "Yacht",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Feribot",
+        "en": "Ferry",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Sualtı qayıq",
+        "en": "Submarine",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kano",
+        "en": "Canoe",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Skuter",
+        "en": "Scooter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Elektrik maşın",
+        "en": "Electric Car",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Limuzin",
+        "en": "Limousine",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ambulans",
+        "en": "Ambulance",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yanğın maşını",
+        "en": "Fire Truck",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Polis maşını",
+        "en": "Police Car",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ekskovator",
+        "en": "Excavator",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kran",
+        "en": "Crane",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Buldozer",
+        "en": "Bulldozer",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Furqon",
+        "en": "Van",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pikap",
+        "en": "Pickup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sedan",
+        "en": "Sedan",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "SUV",
+        "en": "SUV",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kabriolet",
+        "en": "Convertible",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Moped",
+        "en": "Moped",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Segvey",
+        "en": "Segway",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Samokat",
+        "en": "Kick Scooter",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lift",
+        "en": "Elevator",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Eskalator",
+        "en": "Escalator",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Körpü",
+        "en": "Bridge",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tunel",
+        "en": "Tunnel",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yol",
+        "en": "Road",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Magistral",
+        "en": "Highway",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dayanacaq",
+        "en": "Bus Stop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aeroport",
+        "en": "Airport",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vağzal",
+        "en": "Station",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Liman",
+        "en": "Port",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Döngə",
+        "en": "Roundabout",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Svetofor",
+        "en": "Traffic Light",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yol nişanı",
+        "en": "Road Sign",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Benzin",
+        "en": "Gasoline",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dizel",
+        "en": "Diesel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Elektrik",
+        "en": "Electric",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sürət",
+        "en": "Speed",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tormoz",
+        "en": "Brake",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sükan",
+        "en": "Steering Wheel",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təkər",
+        "en": "Wheel",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mühərrik",
+        "en": "Engine",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Baqaj",
+        "en": "Trunk",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şüşə",
+        "en": "Windshield",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fara",
+        "en": "Headlight",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Siqnal",
+        "en": "Horn",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "GPS",
+        "en": "GPS",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Naviqasiya",
+        "en": "Navigation",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sığorta",
+        "en": "Insurance",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qaraj",
+        "en": "Garage",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Parkinq",
+        "en": "Parking",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cərimə",
+        "en": "Fine",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sürücülük",
+        "en": "Driving",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vəsiqə",
+        "en": "License",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yük",
+        "en": "Cargo",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sərnişin",
+        "en": "Passenger",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bilet",
+        "en": "Ticket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Marşrut",
+        "en": "Route",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dayanma",
+        "en": "Stop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gedişr",
+        "en": "Trip",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yanacaq",
+        "en": "Fuel",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "geyim": [
+      {
+        "az": "Köynək",
+        "en": "Shirt",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şalvar",
+        "en": "Pants",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cins",
+        "en": "Jeans",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pencək",
+        "en": "Blazer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Paltar",
+        "en": "Dress",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yubka",
+        "en": "Skirt",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gödəkçə",
+        "en": "Jacket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Palto",
+        "en": "Coat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sviter",
+        "en": "Sweater",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Futbolka",
+        "en": "T-Shirt",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şort",
+        "en": "Shorts",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kostyum",
+        "en": "Suit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kravat",
+        "en": "Tie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Papaq",
+        "en": "Hat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şlyapa",
+        "en": "Fedora",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Şapka",
+        "en": "Cap",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Eynək",
+        "en": "Glasses",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Günəş eynəyi",
+        "en": "Sunglasses",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Saat",
+        "en": "Watch",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Üzük",
+        "en": "Ring",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qolbaq",
+        "en": "Bracelet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boyunbağı",
+        "en": "Necklace",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sırğa",
+        "en": "Earring",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kəmər",
+        "en": "Belt",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ayaqqabı",
+        "en": "Shoes",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çəkmə",
+        "en": "Boots",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Krossovka",
+        "en": "Sneakers",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sandal",
+        "en": "Sandals",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tapşırma",
+        "en": "Slippers",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Corab",
+        "en": "Socks",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Əlcək",
+        "en": "Gloves",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şərf",
+        "en": "Scarf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çətir",
+        "en": "Umbrella",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çanta",
+        "en": "Bag",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bel çantası",
+        "en": "Backpack",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cüzdan",
+        "en": "Wallet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pijama",
+        "en": "Pajamas",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xalat",
+        "en": "Robe",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mayo",
+        "en": "Swimsuit",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İdman forması",
+        "en": "Sportswear",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bluza",
+        "en": "Blouse",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Jilet",
+        "en": "Vest",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yağışlıq",
+        "en": "Raincoat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Trikotaj",
+        "en": "Knitwear",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İpək",
+        "en": "Silk",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Pambıq",
+        "en": "Cotton",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yun",
+        "en": "Wool",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəri",
+        "en": "Leather",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Denim",
+        "en": "Denim",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Parça",
+        "en": "Fabric",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Düymə",
+        "en": "Button",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fermuar",
+        "en": "Zipper",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cib",
+        "en": "Pocket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yaxalıq",
+        "en": "Collar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qol",
+        "en": "Sleeve",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bağ",
+        "en": "Lace",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Naxış",
+        "en": "Pattern",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çizgili",
+        "en": "Striped",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xallı",
+        "en": "Polka Dot",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Hörülmüş",
+        "en": "Knitted",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Məxmər",
+        "en": "Velvet",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kətan",
+        "en": "Linen",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Polyester",
+        "en": "Polyester",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Neylon",
+        "en": "Nylon",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Makiyaj",
+        "en": "Makeup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ətir",
+        "en": "Perfume",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Krem",
+        "en": "Cream",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Saç düzümü",
+        "en": "Hairstyle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Manikürlər",
+        "en": "Manicure",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Aksesuar",
+        "en": "Accessory",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Broş",
+        "en": "Brooch",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qalstuk",
+        "en": "Necktie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bant",
+        "en": "Headband",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tokalar",
+        "en": "Hair Clip",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Maskalar",
+        "en": "Mask",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Medalyon",
+        "en": "Medallion",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Taxı",
+        "en": "Jewelry",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Moda",
+        "en": "Fashion",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "mekteb": [
+      {
+        "az": "Kitab",
+        "en": "Book",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəftər",
+        "en": "Notebook",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qələm",
+        "en": "Pen",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Karandaş",
+        "en": "Pencil",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pozan",
+        "en": "Eraser",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xətkeş",
+        "en": "Ruler",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lövhə",
+        "en": "Blackboard",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tabaşir",
+        "en": "Chalk",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Partan",
+        "en": "Desk",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stul",
+        "en": "Chair",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çanta",
+        "en": "Schoolbag",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Müəllim",
+        "en": "Teacher",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şagird",
+        "en": "Student",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sinif",
+        "en": "Classroom",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Məktəb",
+        "en": "School",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Universitet",
+        "en": "University",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İmtahan",
+        "en": "Exam",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qiymət",
+        "en": "Grade",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ev tapşırığı",
+        "en": "Homework",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dərs",
+        "en": "Lesson",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Cədvəl",
+        "en": "Schedule",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fasilə",
+        "en": "Break",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Zəng",
+        "en": "Bell",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Direktor",
+        "en": "Principal",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Laboratoriya",
+        "en": "Laboratory",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kitabxana",
+        "en": "Library",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İdman zalı",
+        "en": "Gym",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Həyət",
+        "en": "Schoolyard",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Forma",
+        "en": "Uniform",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Riyaziyyat",
+        "en": "Mathematics",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fizika",
+        "en": "Physics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kimya",
+        "en": "Chemistry",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Biologiya",
+        "en": "Biology",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tarix",
+        "en": "History",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Coğrafiya",
+        "en": "Geography",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ədəbiyyat",
+        "en": "Literature",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İngilis dili",
+        "en": "English",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Musiqi",
+        "en": "Music",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rəsm",
+        "en": "Drawing",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İnformatika",
+        "en": "Computer Science",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bədən tərbiyəsi",
+        "en": "Physical Education",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Diplom",
+        "en": "Diploma",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Attestat",
+        "en": "Certificate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tədris",
+        "en": "Education",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mühazirə",
+        "en": "Lecture",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Seminar",
+        "en": "Seminar",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Referat",
+        "en": "Essay",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Layihə",
+        "en": "Project",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Prezentasiya",
+        "en": "Presentation",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hesabat",
+        "en": "Report",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qrup",
+        "en": "Group",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kurs",
+        "en": "Course",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Magistr",
+        "en": "Master's",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Doktorantura",
+        "en": "PhD",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Professor",
+        "en": "Professor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dekan",
+        "en": "Dean",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fakültə",
+        "en": "Faculty",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kafedra",
+        "en": "Department",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Stipendiya",
+        "en": "Scholarship",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tələbə",
+        "en": "Student",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Buraxılış",
+        "en": "Graduation",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Məzun",
+        "en": "Graduate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təcrübə",
+        "en": "Internship",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bilik",
+        "en": "Knowledge",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bacarıq",
+        "en": "Skill",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Düstur",
+        "en": "Formula",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Teorem",
+        "en": "Theorem",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Cəbr",
+        "en": "Algebra",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Həndəsə",
+        "en": "Geometry",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Hesab",
+        "en": "Arithmetic",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Statistika",
+        "en": "Statistics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Proqram",
+        "en": "Curriculum",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dərslik",
+        "en": "Textbook",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Atlas",
+        "en": "Atlas",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xəritə",
+        "en": "Map",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qlobus",
+        "en": "Globe",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mikroskop",
+        "en": "Microscope",
+        "image": null,
+        "difficulty": 2
+      }
+    ],
+    "ev": [
+      {
+        "az": "Stol",
+        "en": "Table",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stul",
+        "en": "Chair",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Divan",
+        "en": "Sofa",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çarpayı",
+        "en": "Bed",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şkaf",
+        "en": "Wardrobe",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rəf",
+        "en": "Shelf",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Güzgü",
+        "en": "Mirror",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lampa",
+        "en": "Lamp",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çilçıraq",
+        "en": "Chandelier",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Pərdə",
+        "en": "Curtain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xalça",
+        "en": "Carpet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yastıq",
+        "en": "Pillow",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yorğan",
+        "en": "Blanket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Saat",
+        "en": "Clock",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Televizor",
+        "en": "Television",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Soyuducu",
+        "en": "Refrigerator",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Paltaryuyan",
+        "en": "Washing Machine",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qabyuyan",
+        "en": "Dishwasher",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Soba",
+        "en": "Oven",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Plitə",
+        "en": "Stove",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mikrodalğa",
+        "en": "Microwave",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Toster",
+        "en": "Toaster",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çaydan",
+        "en": "Kettle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Blender",
+        "en": "Blender",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaşıq",
+        "en": "Spoon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çəngəl",
+        "en": "Fork",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bıçaq",
+        "en": "Knife",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boşqab",
+        "en": "Plate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stəkan",
+        "en": "Glass",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fincan",
+        "en": "Cup",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qazan",
+        "en": "Pot",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tava",
+        "en": "Pan",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Süpürgə",
+        "en": "Broom",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tozsoran",
+        "en": "Vacuum Cleaner",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəsmal",
+        "en": "Towel",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sabun",
+        "en": "Soap",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şampun",
+        "en": "Shampoo",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Diş fırçası",
+        "en": "Toothbrush",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ütü",
+        "en": "Iron",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fən",
+        "en": "Hair Dryer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sandalye",
+        "en": "Armchair",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kommod",
+        "en": "Dresser",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Açar",
+        "en": "Key",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qıfıl",
+        "en": "Lock",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qapı",
+        "en": "Door",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pəncərə",
+        "en": "Window",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Divar",
+        "en": "Wall",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tavan",
+        "en": "Ceiling",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Döşəmə",
+        "en": "Floor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Pilləkən",
+        "en": "Stairs",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Balkon",
+        "en": "Balcony",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaraj",
+        "en": "Garage",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bağ",
+        "en": "Garden",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hovuz",
+        "en": "Pool",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Çəmən",
+        "en": "Lawn",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kamin",
+        "en": "Fireplace",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Buxarı",
+        "en": "Chimney",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dam",
+        "en": "Roof",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hasarlar",
+        "en": "Fence",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Darvaza",
+        "en": "Gate",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Zəng",
+        "en": "Doorbell",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kondisioner",
+        "en": "Air Conditioner",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Radiator",
+        "en": "Radiator",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vannalar",
+        "en": "Bathtub",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Duş",
+        "en": "Shower",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tualet",
+        "en": "Toilet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Lavabo",
+        "en": "Sink",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kran",
+        "en": "Faucet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boru",
+        "en": "Pipe",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Elektrik",
+        "en": "Electricity",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rozetka",
+        "en": "Socket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Açar",
+        "en": "Switch",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Antenna",
+        "en": "Antenna",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Poçt qutusu",
+        "en": "Mailbox",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Taxtalar",
+        "en": "Wood",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Beton",
+        "en": "Concrete",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Kərpic",
+        "en": "Brick",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şüşə",
+        "en": "Glass",
+        "image": null,
+        "difficulty": 1
+      }
+    ],
+    "saglamliq": [
+      {
+        "az": "Həkim",
+        "en": "Doctor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Xəstəxana",
+        "en": "Hospital",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tibb bacısı",
+        "en": "Nurse",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dərman",
+        "en": "Medicine",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Həb",
+        "en": "Pill",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Şpris",
+        "en": "Syringe",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Peyvənd",
+        "en": "Vaccine",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Stetoskop",
+        "en": "Stethoscope",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Termometr",
+        "en": "Thermometer",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təzyiq",
+        "en": "Blood Pressure",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Rentgen",
+        "en": "X-Ray",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "USM",
+        "en": "Ultrasound",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Analiz",
+        "en": "Test",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qan",
+        "en": "Blood",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ürək",
+        "en": "Heart",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Beyin",
+        "en": "Brain",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ağciyər",
+        "en": "Lung",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qaraciyər",
+        "en": "Liver",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Böyrək",
+        "en": "Kidney",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mədə",
+        "en": "Stomach",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sümük",
+        "en": "Bone",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Əzələ",
+        "en": "Muscle",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sinir",
+        "en": "Nerve",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Damar",
+        "en": "Vein",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Göz",
+        "en": "Eye",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qulaq",
+        "en": "Ear",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Burun",
+        "en": "Nose",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Diş",
+        "en": "Tooth",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dəri",
+        "en": "Skin",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vitamin",
+        "en": "Vitamin",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Protein",
+        "en": "Protein",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Karbohidrat",
+        "en": "Carbohydrate",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yağ",
+        "en": "Fat",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kalori",
+        "en": "Calorie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dieta",
+        "en": "Diet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fitnes",
+        "en": "Fitness",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Meditasiya",
+        "en": "Meditation",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yuxu",
+        "en": "Sleep",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stress",
+        "en": "Stress",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Allergiya",
+        "en": "Allergy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Soyuqdəymə",
+        "en": "Cold",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qrip",
+        "en": "Flu",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qızdırma",
+        "en": "Fever",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Öskürək",
+        "en": "Cough",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Baş ağrısı",
+        "en": "Headache",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Sınıq",
+        "en": "Fracture",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Yara",
+        "en": "Wound",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bandaj",
+        "en": "Bandage",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gips",
+        "en": "Cast",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Əməliyyat",
+        "en": "Surgery",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Anesteziyal",
+        "en": "Anesthesia",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Reanimashiya",
+        "en": "ICU",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Ambulans",
+        "en": "Ambulance",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İlk yardım",
+        "en": "First Aid",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Maskalar",
+        "en": "Mask",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Əlcəklər",
+        "en": "Gloves",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dezinfeksiya",
+        "en": "Disinfection",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Gigiyena",
+        "en": "Hygiene",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Stomatoloq",
+        "en": "Dentist",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Göz həkimi",
+        "en": "Eye Doctor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kardioloq",
+        "en": "Cardiologist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nevroloq",
+        "en": "Neurologist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ortoped",
+        "en": "Orthopedist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dermatoloq",
+        "en": "Dermatologist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Pediatr",
+        "en": "Pediatrician",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Psixiatr",
+        "en": "Psychiatrist",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Resept",
+        "en": "Prescription",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Aptek",
+        "en": "Pharmacy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Klinika",
+        "en": "Clinic",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Laboratoriya",
+        "en": "Laboratory",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Donorlar",
+        "en": "Donor",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Qan qrupu",
+        "en": "Blood Type",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "İmmunitet",
+        "en": "Immunity",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Antibiotik",
+        "en": "Antibiotic",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Ağrıkəsici",
+        "en": "Painkiller",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Zəhər",
+        "en": "Poison",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Antidot",
+        "en": "Antidote",
+        "image": null,
+        "difficulty": 3
+      }
+    ],
+    "kosmos": [
+      {
+        "az": "Günəş",
+        "en": "Sun",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ay",
+        "en": "Moon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Ulduz",
+        "en": "Star",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Planet",
+        "en": "Planet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yer",
+        "en": "Earth",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Mars",
+        "en": "Mars",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Yupiter",
+        "en": "Jupiter",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Saturn",
+        "en": "Saturn",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Venera",
+        "en": "Venus",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Merkuri",
+        "en": "Mercury",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Uran",
+        "en": "Uranus",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Neptun",
+        "en": "Neptune",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Pluton",
+        "en": "Pluto",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Asteroid",
+        "en": "Asteroid",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Komet",
+        "en": "Comet",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Meteor",
+        "en": "Meteor",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qalaktika",
+        "en": "Galaxy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Nebula",
+        "en": "Nebula",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Qara dəlik",
+        "en": "Black Hole",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Samanyolu",
+        "en": "Milky Way",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Təyyarə",
+        "en": "Spaceship",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Raket",
+        "en": "Rocket",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Peyk",
+        "en": "Satellite",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Teleskop",
+        "en": "Telescope",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Astronavt",
+        "en": "Astronaut",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "NASA",
+        "en": "NASA",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Orbital",
+        "en": "Orbit",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cazibə",
+        "en": "Gravity",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vakuum",
+        "en": "Vacuum",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "İşıq",
+        "en": "Light",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Enerji",
+        "en": "Energy",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Atom",
+        "en": "Atom",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Molekul",
+        "en": "Molecule",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Elektron",
+        "en": "Electron",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Proton",
+        "en": "Proton",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Neytron",
+        "en": "Neutron",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Nüvə",
+        "en": "Nucleus",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Maqnit",
+        "en": "Magnet",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Elektrik",
+        "en": "Electricity",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Dalğa",
+        "en": "Wave",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Tezlik",
+        "en": "Frequency",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Lazer",
+        "en": "Laser",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fiber",
+        "en": "Fiber Optic",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Mikroskop",
+        "en": "Microscope",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Laboratoriya",
+        "en": "Laboratory",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Eksperiment",
+        "en": "Experiment",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hipotez",
+        "en": "Hypothesis",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Nəzəriyyə",
+        "en": "Theory",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Düstur",
+        "en": "Formula",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fizika",
+        "en": "Physics",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Kimya",
+        "en": "Chemistry",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Biologiya",
+        "en": "Biology",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Genetika",
+        "en": "Genetics",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "DNK",
+        "en": "DNA",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Hüceyrə",
+        "en": "Cell",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Virus",
+        "en": "Virus",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bakteriya",
+        "en": "Bacteria",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Evolyusiya",
+        "en": "Evolution",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dinozavr",
+        "en": "Dinosaur",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Fossillər",
+        "en": "Fossil",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Termodinamika",
+        "en": "Thermodynamics",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Kvantr",
+        "en": "Quantum",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Nisbilik",
+        "en": "Relativity",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Nyuton",
+        "en": "Newton",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Eynşteyn",
+        "en": "Einstein",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Böyük partlayış",
+        "en": "Big Bang",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Karbon",
+        "en": "Carbon",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Oksigen",
+        "en": "Oxygen",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hidrogen",
+        "en": "Hydrogen",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Helium",
+        "en": "Helium",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Azot",
+        "en": "Nitrogen",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Dəmir",
+        "en": "Iron",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Qızıl",
+        "en": "Gold",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Gümüş",
+        "en": "Silver",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Platin",
+        "en": "Platinum",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Almaz",
+        "en": "Diamond",
+        "image": null,
+        "difficulty": 2
+      }
+    ],
+    "proqramlasma": [
+      {
+        "az": "React",
+        "en": "React",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "API",
+        "en": "API",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bug",
+        "en": "Bug",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Framework",
+        "en": "Framework",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Deploy",
+        "en": "Deploy",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Git",
+        "en": "Git",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Frontend",
+        "en": "Frontend",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Backend",
+        "en": "Backend",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Database",
+        "en": "Database",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Server",
+        "en": "Server",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Docker",
+        "en": "Docker",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Variable",
+        "en": "Variable",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Function",
+        "en": "Function",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Component",
+        "en": "Component",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Hook",
+        "en": "Hook",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "State",
+        "en": "State",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Props",
+        "en": "Props",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Router",
+        "en": "Router",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Middleware",
+        "en": "Middleware",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Token",
+        "en": "Token",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "JSON",
+        "en": "JSON",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "REST",
+        "en": "REST",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "GraphQL",
+        "en": "GraphQL",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "TypeScript",
+        "en": "TypeScript",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "JavaScript",
+        "en": "JavaScript",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Python",
+        "en": "Python",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "HTML",
+        "en": "HTML",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "CSS",
+        "en": "CSS",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Terminal",
+        "en": "Terminal",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Debug",
+        "en": "Debug",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Compile",
+        "en": "Compile",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Runtime",
+        "en": "Runtime",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Stack",
+        "en": "Stack",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Queue",
+        "en": "Queue",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Array",
+        "en": "Array",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Object",
+        "en": "Object",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "String",
+        "en": "String",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Boolean",
+        "en": "Boolean",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Loop",
+        "en": "Loop",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Recursion",
+        "en": "Recursion",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Callback",
+        "en": "Callback",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Promise",
+        "en": "Promise",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Async",
+        "en": "Async",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Fetch",
+        "en": "Fetch",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "DOM",
+        "en": "DOM",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Event",
+        "en": "Event",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Render",
+        "en": "Render",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "npm",
+        "en": "npm",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Webpack",
+        "en": "Webpack",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Vite",
+        "en": "Vite",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Tailwind",
+        "en": "Tailwind",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Bootstrap",
+        "en": "Bootstrap",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "MongoDB",
+        "en": "MongoDB",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "PostgreSQL",
+        "en": "PostgreSQL",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Redis",
+        "en": "Redis",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Socket",
+        "en": "Socket",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "HTTP",
+        "en": "HTTP",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "HTTPS",
+        "en": "HTTPS",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "SSL",
+        "en": "SSL",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "CDN",
+        "en": "CDN",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cache",
+        "en": "Cache",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Cookie",
+        "en": "Cookie",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Session",
+        "en": "Session",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "OAuth",
+        "en": "OAuth",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "JWT",
+        "en": "JWT",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "CORS",
+        "en": "CORS",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Regex",
+        "en": "Regex",
+        "image": null,
+        "difficulty": 3
+      },
+      {
+        "az": "Algorithm",
+        "en": "Algorithm",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Binary",
+        "en": "Binary",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Responsive",
+        "en": "Responsive",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Breakpoint",
+        "en": "Breakpoint",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "Node.js",
+        "en": "Node.js",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Express",
+        "en": "Express",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Next.js",
+        "en": "Next.js",
+        "image": null,
+        "difficulty": 1
+      },
+      {
+        "az": "Vercel",
+        "en": "Vercel",
+        "image": null,
+        "difficulty": 2
+      },
+      {
+        "az": "GitHub",
+        "en": "GitHub",
+        "image": null,
+        "difficulty": 1
+      }
+    ]
+  }
+}
