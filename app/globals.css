@@ -13,16 +13,16 @@
     color: #E8E4D8;
   }
 
-  /* Light theme — user-specified colors */
+  /* Light theme — warm milky cream palette */
   html.light body {
-    background-color: #F8F6F1;
+    background-color: #EDE8DD;
     color: #1A1814;
   }
   html.light .bg-dark {
-    background-color: #F8F6F1;
+    background-color: #EDE8DD;
   }
   html.light .min-h-screen {
-    background-color: #F8F6F1;
+    background-color: #EDE8DD;
   }
 
   /* Text colors */
@@ -65,14 +65,14 @@
   html.light .border-gold\/\[0\.1\],
   html.light .border-gold\/\[0\.12\],
   html.light .border-gold\/\[0\.15\] {
-    border-color: #E8E4D8;
+    border-color: #DDD7C9;
   }
   html.light .border-cream\/\[0\.03\],
   html.light .border-cream\/\[0\.04\],
   html.light .border-white\/\[0\.03\],
   html.light .border-white\/\[0\.04\],
   html.light .border-white\/\[0\.06\] {
-    border-color: #E8E4D8;
+    border-color: #DDD7C9;
   }
 
   /* Card / panel backgrounds */
@@ -80,19 +80,19 @@
   html.light .bg-cream\/\[0\.04\],
   html.light .bg-white\/\[0\.02\],
   html.light .bg-white\/\[0\.04\] {
-    background-color: #FFFFFF;
-    border-color: #E8E4D8;
+    background-color: #F5F0E6;
+    border-color: #DDD7C9;
   }
 
   /* Stat card backgrounds */
   html.light .bg-gold\/\[0\.04\],
   html.light .bg-gold\/\[0\.06\],
   html.light .bg-gold\/\[0\.08\] {
-    background-color: #F0EDE6;
+    background-color: #E8E2D4;
   }
   html.light .bg-gold\/5,
   html.light .bg-gold\/10 {
-    background-color: #F0EDE6;
+    background-color: #E8E2D4;
   }
   html.light .bg-gold\/20 {
     background-color: rgba(184, 148, 46, 0.15);
@@ -101,17 +101,17 @@
   /* NavBar */
   html.light nav.bg-dark,
   html.light nav {
-    background-color: #FFFFFF;
-    border-color: #E8E4D8;
+    background-color: #F2EDE3;
+    border-color: #DDD7C9;
   }
   html.light .bg-dark\/95 {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(242, 237, 227, 0.95);
   }
 
   /* Input fields */
   html.light input {
-    background-color: #FFFFFF;
-    border-color: #E8E4D8;
+    background-color: #F5F0E6;
+    border-color: #DDD7C9;
     color: #1A1814;
   }
   html.light input::placeholder {
@@ -172,11 +172,11 @@
   html.light .border-gold\/\[0\.2\] { border-color: #E8E4D8; }
   html.light .border-gold\/\[0\.25\] { border-color: #E8E4D8; }
   html.light .border-gold\/\[0\.3\] { border-color: #E8E4D8; }
-  html.light .border-gold\/\[0\.4\] { border-color: #D0C8B0; }
+  html.light .border-gold\/\[0\.4\] { border-color: #C8C0A8; }
   html.light .border-gold\/10 { border-color: #E8E4D8; }
   html.light .border-gold\/15 { border-color: #E8E4D8; }
   html.light .border-gold\/20 { border-color: #E8E4D8; }
-  html.light .border-gold\/30 { border-color: #D0C8B0; }
+  html.light .border-gold\/30 { border-color: #C8C0A8; }
 
   /* Missing cream opacity variants */
   html.light .bg-cream\/3 { background-color: rgba(26, 24, 20, 0.03); }
@@ -185,31 +185,31 @@
   html.light .bg-cream\/\[0\.08\] { background-color: rgba(26, 24, 20, 0.06); }
   html.light .bg-cream\/\[0\.10\] { background-color: rgba(26, 24, 20, 0.08); }
   html.light .bg-cream\/10 { background-color: rgba(26, 24, 20, 0.08); }
-  html.light .border-cream\/\[0\.05\] { border-color: #E0DCD4; }
-  html.light .border-cream\/\[0\.06\] { border-color: #E0DCD4; }
-  html.light .border-cream\/\[0\.08\] { border-color: #D8D4CC; }
-  html.light .border-cream\/15 { border-color: #D0CCC4; }
+  html.light .border-cream\/\[0\.05\] { border-color: #D8D2C4; }
+  html.light .border-cream\/\[0\.06\] { border-color: #D8D2C4; }
+  html.light .border-cream\/\[0\.08\] { border-color: #D0CABC; }
+  html.light .border-cream\/15 { border-color: #C8C2B4; }
 
   /* Missing white opacity variants */
-  html.light .bg-white\/\[0\.01\] { background-color: #FFFFFF; }
-  html.light .bg-white\/\[0\.03\] { background-color: #FFFFFF; }
-  html.light .bg-white\/\[0\.05\] { background-color: rgba(255, 255, 255, 0.95); }
-  html.light .border-white\/\[0\.05\] { border-color: #E0DCD4; }
-  html.light .border-white\/\[0\.08\] { border-color: #D8D4CC; }
+  html.light .bg-white\/\[0\.01\] { background-color: #F5F0E6; }
+  html.light .bg-white\/\[0\.03\] { background-color: #F5F0E6; }
+  html.light .bg-white\/\[0\.05\] { background-color: rgba(245, 240, 230, 0.95); }
+  html.light .border-white\/\[0\.05\] { border-color: #D8D2C4; }
+  html.light .border-white\/\[0\.08\] { border-color: #D0CABC; }
 
   /* Hover states */
-  html.light .hover\:bg-white\/\[0\.04\]:hover { background-color: rgba(248, 246, 241, 0.8); }
-  html.light .hover\:bg-white\/\[0\.08\]:hover { background-color: rgba(248, 246, 241, 0.9); }
+  html.light .hover\:bg-white\/\[0\.04\]:hover { background-color: rgba(237, 232, 221, 0.8); }
+  html.light .hover\:bg-white\/\[0\.08\]:hover { background-color: rgba(237, 232, 221, 0.9); }
   html.light .hover\:bg-gold\/\[0\.03\]:hover { background-color: rgba(184, 148, 46, 0.05); }
   html.light .hover\:bg-gold\/\[0\.06\]:hover { background-color: rgba(184, 148, 46, 0.08); }
   html.light .hover\:bg-gold\/\[0\.10\]:hover { background-color: rgba(184, 148, 46, 0.1); }
   html.light .hover\:bg-gold\/10:hover { background-color: rgba(184, 148, 46, 0.1); }
   html.light .hover\:bg-gold\/15:hover { background-color: rgba(184, 148, 46, 0.12); }
-  html.light .hover\:border-gold\/20:hover { border-color: #D0C8B0; }
+  html.light .hover\:border-gold\/20:hover { border-color: #C8C0A8; }
   html.light .hover\:border-gold\/30:hover { border-color: #C0B8A0; }
   html.light .hover\:border-gold\/40:hover { border-color: #B0A890; }
-  html.light .lg\:hover\:bg-white\/\[0\.04\]:hover { background-color: rgba(248, 246, 241, 0.8); }
-  html.light .lg\:hover\:bg-white\/\[0\.08\]:hover { background-color: rgba(248, 246, 241, 0.9); }
+  html.light .lg\:hover\:bg-white\/\[0\.04\]:hover { background-color: rgba(237, 232, 221, 0.8); }
+  html.light .lg\:hover\:bg-white\/\[0\.08\]:hover { background-color: rgba(237, 232, 221, 0.9); }
 
   /* Text opacity variants */
   html.light .text-cream\/10 { color: rgba(26, 24, 20, 0.15); }
@@ -228,26 +228,26 @@
   html.light .text-green\/60 { color: rgba(122, 171, 106, 0.7); }
 
   /* Dropdown / modal backdrop */
-  html.light .bg-dark\/80 { background-color: rgba(248, 246, 241, 0.85); }
-  html.light .bg-dark\/95 { background-color: rgba(248, 246, 241, 0.95); }
+  html.light .bg-dark\/80 { background-color: rgba(237, 232, 221, 0.85); }
+  html.light .bg-dark\/95 { background-color: rgba(237, 232, 221, 0.95); }
 
   /* Rounded sm variants for chat bubbles */
   html.light .rounded-bl-sm { border-bottom-left-radius: 4px; }
 
   /* Fox logo mask */
   html.light {
-    --fox-mask-color: #F8F6F1;
+    --fox-mask-color: #EDE8DD;
   }
 
   /* Glass effect in light */
   html.light .glass {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #E8E4D8;
+    background: rgba(245, 240, 230, 0.8);
+    border: 1px solid #DDD7C9;
   }
 
   /* Scrollbar */
   html.light ::-webkit-scrollbar-track {
-    background: #F8F6F1;
+    background: #EDE8DD;
   }
   html.light ::-webkit-scrollbar-thumb {
     background: rgba(184, 148, 46, 0.2);
@@ -257,10 +257,10 @@
   }
 
   /* Hardcoded dark colors → light overrides */
-  html.light .bg-\[#1A1A18\] { background-color: #FFFFFF; border-color: #E8E4D8; }
-  html.light .bg-\[#141210\] { background-color: #FFFFFF; border-color: #E8E4D8; }
-  html.light .bg-\[#0D0D0C\] { background-color: #F8F6F1; }
-  html.light .bg-dark\/90 { background-color: rgba(248, 246, 241, 0.9); }
+  html.light .bg-\[#1A1A18\] { background-color: #F2EDE3; border-color: #DDD7C9; }
+  html.light .bg-\[#141210\] { background-color: #F2EDE3; border-color: #DDD7C9; }
+  html.light .bg-\[#0D0D0C\] { background-color: #EDE8DD; }
+  html.light .bg-dark\/90 { background-color: rgba(237, 232, 221, 0.9); }
 
   body {
     background-color: #0D0D0C;

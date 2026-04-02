@@ -3,11 +3,10 @@ import type { ServerToClientEvents, ClientToServerEvents } from "@/types";
 
 let SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001";
 
-// Əgər NEXT_PUBLIC_SOCKET_URL "localhost" və ya "127.0.0.1" daxil edirsə və brauzerdəyiksə,
-// cari IP-ni tapmağa çalışırıq.
-if (typeof window !== "undefined") {
+// LAN override: yalnız NEXT_PUBLIC_SOCKET_URL təyin olunmadıqda (lokal development).
+// Production-da (Vercel) NEXT_PUBLIC_SOCKET_URL Railway URL-nə baxır — onu override etmə.
+if (typeof window !== "undefined" && !process.env.NEXT_PUBLIC_SOCKET_URL) {
   const hostname = window.location.hostname;
-  // Əgər kimsə başqa IP ilə girsə (məs. 192.168.x.x), socket də ora getməlidir.
   if (hostname !== "localhost" && hostname !== "127.0.0.1") {
     SOCKET_URL = `http://${hostname}:3001`;
   }
