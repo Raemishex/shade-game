@@ -84,13 +84,13 @@ export default function LobbyPage() {
   const playerCount = room?.players.length ?? 0;
   const canStart = isHost && playerCount >= 3;
 
-  // Connection timeout — 10 saniyə ərzində bağlantı olmasa xəta göstər
+  // Connection timeout — 6 saniyə ərzində bağlantı olmasa xəta göstər
   useEffect(() => {
     if (!joining) return;
     const timeout = setTimeout(() => {
       setConnectionError(true);
       setJoining(false);
-    }, 10000);
+    }, 6000);
     return () => clearTimeout(timeout);
   }, [joining]);
 
@@ -190,8 +190,11 @@ export default function LobbyPage() {
         <svg width="48" height="48" viewBox="0 0 24 24" className="mb-4 opacity-40">
           <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z" fill="#E8593C"/>
         </svg>
-        <p className="text-cream/60 text-base font-nunito mb-1">{t("lobby.noServerConnection")}</p>
-        <p className="text-cream/50 text-sm font-nunito mb-6">
+        <p className="text-cream/70 text-base font-nunito mb-2">{t("lobby.noServerConnection")}</p>
+        <p className="text-cream/40 text-xs font-mono mb-2 bg-cream/[0.04] px-3 py-1.5 rounded-lg">
+          npm run dev:all
+        </p>
+        <p className="text-cream/30 text-xs font-nunito mb-6">
           {t("lobby.serverNotRunning").replace("{cmd}", "")}
         </p>
         <button

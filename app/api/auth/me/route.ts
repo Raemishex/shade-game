@@ -9,10 +9,17 @@ export async function GET() {
     const user = await getCurrentUser();
 
     if (!user) {
-      return NextResponse.json(
-        { error: "Giriş tələb olunur" },
-        { status: 401 }
-      );
+      // Token yoxdur — guest kimi cavab qaytar (console error-larının qarşısını al)
+      return NextResponse.json({
+        success: true,
+        user: {
+          displayName: "Qonaq",
+          isGuest: true,
+          xp: 0,
+          level: 1,
+          stats: { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 },
+        },
+      });
     }
 
     return NextResponse.json({

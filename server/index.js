@@ -139,8 +139,14 @@ io.use((socket, next) => {
         socket.data.isGuest = true;
       }
     } else {
-      // Guest — server generate edir, client-in userId-si ignore olunur
-      socket.data.userId = generateGuestId();
+      // Guest — client-in localStorage userId-sini istifadə et (isHost yoxlaması üçün vacib)
+      // Yalnız etibarlı guest_ formatını qəbul et, əks halda yeni ID yarat
+      const clientUserId = socket.handshake.auth.userId;
+      if (clientUserId && typeof clientUserId === "string" && /^guest_[a-z0-9]+$/i.test(clientUserId)) {
+        socket.data.userId = clientUserId;
+      } else {
+        socket.data.userId = generateGuestId();
+      }
       socket.data.isGuest = true;
     }
 
