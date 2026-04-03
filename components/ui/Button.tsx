@@ -16,11 +16,11 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-green border border-green/60 hover:bg-green/90",
-  secondary: "bg-blue border border-blue/60 hover:bg-blue/90",
+  primary: "bg-gold text-dark font-bold border border-gold/80 hover:bg-gold/90",
+  secondary: "bg-cream/[0.06] text-cream border border-cream/15 hover:bg-cream/10",
   gold: "bg-gold/[0.08] border border-gold/20 text-gold hover:bg-gold/10",
   ghost: "bg-transparent text-cream border border-cream/10 hover:bg-cream/10",
-  danger: "bg-red text-white hover:bg-red/90",
+  danger: "bg-red/80 text-white border border-red/60 hover:bg-red/70",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

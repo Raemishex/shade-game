@@ -242,7 +242,7 @@ export default function ProfilePage() {
       <div>
         {/* Profile Header — tablet: narrower, centered */}
         <div
-          className="pt-6 pb-4 px-6 text-center border-b border-gold/[0.06]"
+          className="pt-6 md:pt-10 pb-4 px-6 text-center border-b border-gold/[0.06]"
         >
           <div className="relative w-[76px] h-[76px] lg:w-[90px] lg:h-[90px] mx-auto mb-3">
             <div className="w-full h-full rounded-full border-[1.5px] border-gold flex items-center justify-center">
