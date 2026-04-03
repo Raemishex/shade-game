@@ -47,7 +47,7 @@ export default function FoxLogo({ size = 70, animate = true, className = "" }: F
             cx="50"
             cy="68"
             rx="11"
-            ry="6.5"
+            initial={{ ry: 6.5 }}
             animate={{ ry: [6.5, 0.8, 6.5] }}
             transition={{ duration: 0.3, delay: 4, repeat: Infinity, repeatDelay: 8 }}
             fill="#C8A44E"
@@ -61,7 +61,7 @@ export default function FoxLogo({ size = 70, animate = true, className = "" }: F
             cx="51.5"
             cy="67"
             rx="2"
-            ry="2.5"
+            initial={{ ry: 2.5 }}
             animate={{ ry: [2.5, 0.3, 2.5] }}
             transition={{ duration: 0.3, delay: 4, repeat: Infinity, repeatDelay: 8 }}
             fill="#0D0D0C"
@@ -76,7 +76,7 @@ export default function FoxLogo({ size = 70, animate = true, className = "" }: F
             cx="90"
             cy="68"
             rx="11"
-            ry="6.5"
+            initial={{ ry: 6.5 }}
             animate={{ ry: [6.5, 0.8, 6.5] }}
             transition={{ duration: 0.3, delay: 4.1, repeat: Infinity, repeatDelay: 8 }}
             fill="#C8A44E"
@@ -90,7 +90,7 @@ export default function FoxLogo({ size = 70, animate = true, className = "" }: F
             cx="91.5"
             cy="67"
             rx="2"
-            ry="2.5"
+            initial={{ ry: 2.5 }}
             animate={{ ry: [2.5, 0.3, 2.5] }}
             transition={{ duration: 0.3, delay: 4.1, repeat: Infinity, repeatDelay: 8 }}
             fill="#0D0D0C"
