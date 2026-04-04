@@ -185,6 +185,16 @@ function cleanupGameState(room) {
   }, GAME_END_DELAY_MS);
 }
 
+// ============== HELPERS ==============
+/**
+ * Get active players: not eliminated AND connected (has socketId)
+ */
+function getActivePlayers(room) {
+  return room.players.filter(
+    (p) => !room.game.eliminated.includes(p.userId) && p.socketId !== null
+  );
+}
+
 // ============== HANDLER SETUP ==============
 function setupGameHandlers(io, socket, checkRateLimit) {
   // ========== game:start ==========
@@ -216,6 +226,22 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       // BUG FIX: Prevent double game start
       if (room.game) {
         if (callback) return callback({ success: false, error: "Oyun artıq başladı" });
+        return;
+      }
+
+      // Filter out players without active socket connections
+      const connectedPlayers = room.players.filter((p) => {
+        const pSocket = io.sockets.sockets.get(p.socketId);
+        if (!pSocket) {
+          console.log(`[game:start] Removing disconnected player ${p.displayName} before start`);
+          return false;
+        }
+        return true;
+      });
+      room.players = connectedPlayers;
+
+      if (room.players.length < 3) {
+        if (callback) return callback({ success: false, error: "Bağlantısı olan minimum 3 oyunçu lazımdır" });
         return;
       }
 
@@ -330,6 +356,9 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       // Verify player is in this room
       if (!room.players.find((p) => p.userId === socket.data.userId)) return;
 
+      // Eliminated players cannot submit clues
+      if (room.game.eliminated.includes(socket.data.userId)) return;
+
       let { clue } = data;
       if (!clue || typeof clue !== "string") return;
 
@@ -362,9 +391,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       console.log(`[clue] ${socket.data.displayName}: "${clue}" (round ${room.game.currentRound})`);
 
       // Hamı ipucu verdisə
-      const activePlayers = room.players.filter(
-        (p) => !room.game.eliminated.includes(p.userId)
-      );
+      const activePlayers = getActivePlayers(room);
       if (currentRound.clues.length >= activePlayers.length) {
         handleRoundEnd(io, roomCode, room);
       }
@@ -399,11 +426,11 @@ function setupGameHandlers(io, socket, checkRateLimit) {
         if (votedFor.includes("$") || votedFor.includes(".")) return;
         // No self-vote
         if (votedFor === socket.data.userId) return;
-        // Check if target is active
-        const activePlayers = room.players.filter(
-          (p) => !room.game.eliminated.includes(p.userId) && p.userId !== socket.data.userId
+        // Check if target is active (not eliminated, not disconnected)
+        const votableTargets = getActivePlayers(room).filter(
+          (p) => p.userId !== socket.data.userId
         );
-        if (!activePlayers.some((p) => p.userId === votedFor)) return;
+        if (!votableTargets.some((p) => p.userId === votedFor)) return;
       }
 
       const voteEntry = {
@@ -416,10 +443,8 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       console.log(`[vote] ${socket.data.displayName} → ${votedFor || "skip"}`);
 
       // Hamı səs verdisə
-      const activePlayers = room.players.filter(
-        (p) => !room.game.eliminated.includes(p.userId)
-      );
-      if (room.game.votes.length >= activePlayers.length) {
+      const activeVoters = getActivePlayers(room);
+      if (room.game.votes.length >= activeVoters.length) {
         handleVoteResult(io, roomCode, room);
       }
     } catch (err) {
@@ -436,15 +461,15 @@ function startRoundTimer(io, roomCode, room) {
   }
 
   room.game.roundTimer = setTimeout(() => {
-    if (!room.game) return;
+    // Re-fetch room from Map to avoid stale closure
+    const freshRoom = rooms.get(roomCode);
+    if (!freshRoom || !freshRoom.game) return;
 
-    const currentRound = room.game.rounds[room.game.currentRound - 1];
+    const currentRound = freshRoom.game.rounds[freshRoom.game.currentRound - 1];
     if (!currentRound) return;
 
     // İpucu verməyən oyunçulara "---" yaz
-    const activePlayers = room.players.filter(
-      (p) => !room.game.eliminated.includes(p.userId)
-    );
+    const activePlayers = getActivePlayers(freshRoom);
 
     let changed = false;
     activePlayers.forEach((player) => {
@@ -461,11 +486,11 @@ function startRoundTimer(io, roomCode, room) {
 
     if (changed) {
       io.to(roomCode).emit("clue:update", currentRound.clues);
-      console.log(`[timer] Round ${room.game.currentRound} timeout — auto-submitted for missing players`);
+      console.log(`[timer] Round ${freshRoom.game.currentRound} timeout — auto-submitted for missing players`);
 
       // Hamı tamamsa raund bitir
       if (currentRound.clues.length >= activePlayers.length) {
-        handleRoundEnd(io, roomCode, room);
+        handleRoundEnd(io, roomCode, freshRoom);
       }
     }
   }, ROUND_TIMER_MS);
@@ -504,10 +529,11 @@ function handleRoundEnd(io, roomCode, room) {
     room.game.rounds.push({ roundNumber: room.game.currentRound, clues: [] });
 
     setTimeout(() => {
-      if (!room.game) return;
-      io.to(roomCode).emit("round:start", room.game.currentRound);
-      startRoundTimer(io, roomCode, room);
-      room.game._roundProcessing = false;
+      const freshRoom = rooms.get(roomCode);
+      if (!freshRoom || !freshRoom.game) return;
+      io.to(roomCode).emit("round:start", freshRoom.game.currentRound);
+      startRoundTimer(io, roomCode, freshRoom);
+      freshRoom.game._roundProcessing = false;
     }, ROUND_TRANSITION_DELAY_MS);
   } else {
     // Bütün raundlar bitdi → müzakirə başlasın
@@ -516,10 +542,13 @@ function handleRoundEnd(io, roomCode, room) {
 
     // Drift-ə davamlı taymer (başlanğıc vaxtına əsaslanır)
     const discussionStartTime = Date.now();
+    room.game._discussionStartTime = discussionStartTime;
+    room.game._discussionDuration = discussionTime;
     let lastEmittedSecond = discussionTime;
 
     const discussionTimer = setInterval(() => {
-      if (!room.game) {
+      const freshRoom = rooms.get(roomCode);
+      if (!freshRoom || !freshRoom.game) {
         clearInterval(discussionTimer);
         return;
       }
@@ -535,18 +564,18 @@ function handleRoundEnd(io, roomCode, room) {
 
       if (timeLeft <= 0) {
         clearInterval(discussionTimer);
-        room.game.discussionTimer = null;
+        freshRoom.game.discussionTimer = null;
         io.to(roomCode).emit("discussion:end");
 
         // Səsvermə başlasın
-        room.status = "voting";
-        room.game.votes = [];
+        freshRoom.status = "voting";
+        freshRoom.game.votes = [];
         io.to(roomCode).emit("voting:start");
 
         // 30s səsvermə taymeri
-        startVoteTimer(io, roomCode, room);
+        startVoteTimer(io, roomCode, freshRoom);
 
-        room.game._roundProcessing = false;
+        freshRoom.game._roundProcessing = false;
       }
     }, DISCUSSION_CHECK_INTERVAL_MS);
 
@@ -561,17 +590,17 @@ function startVoteTimer(io, roomCode, room) {
   }
 
   room.game.voteTimer = setTimeout(() => {
-    if (!room.game || room.status !== "voting") return;
+    // Re-fetch room from Map to avoid stale closure
+    const freshRoom = rooms.get(roomCode);
+    if (!freshRoom || !freshRoom.game || freshRoom.status !== "voting") return;
 
     // Səs verməyən oyunçulara null vote yaz
-    const activePlayers = room.players.filter(
-      (p) => !room.game.eliminated.includes(p.userId)
-    );
+    const activePlayers = getActivePlayers(freshRoom);
 
     let changed = false;
     activePlayers.forEach((player) => {
-      if (!room.game.votes.find((v) => v.voterId === player.userId)) {
-        room.game.votes.push({
+      if (!freshRoom.game.votes.find((v) => v.voterId === player.userId)) {
+        freshRoom.game.votes.push({
           voterId: player.userId,
           votedFor: null,
         });
@@ -582,8 +611,8 @@ function startVoteTimer(io, roomCode, room) {
     if (changed) {
       console.log(`[vote-timer] Auto-submitted null votes for missing players in room ${roomCode}`);
 
-      if (room.game.votes.length >= activePlayers.length) {
-        handleVoteResult(io, roomCode, room);
+      if (freshRoom.game.votes.length >= activePlayers.length) {
+        handleVoteResult(io, roomCode, freshRoom);
       }
     }
   }, VOTE_TIMER_MS);
@@ -784,9 +813,10 @@ function handleVoteResult(io, roomCode, room) {
     room.game._continuationRoundStart = nextRoundNumber;
 
     setTimeout(() => {
-      if (!room.game) return; // BUG 2 fix: null check
-      io.to(roomCode).emit("round:start", room.game.currentRound);
-      startRoundTimer(io, roomCode, room);
+      const freshRoom = rooms.get(roomCode);
+      if (!freshRoom || !freshRoom.game) return;
+      io.to(roomCode).emit("round:start", freshRoom.game.currentRound);
+      startRoundTimer(io, roomCode, freshRoom);
     }, ROUND_TRANSITION_DELAY_MS);
   }
 

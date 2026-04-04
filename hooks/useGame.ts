@@ -60,10 +60,12 @@ export function useGame(roomCode?: string) {
     }
     socket.on("connect", requestGameState);
 
-    // BUG 3.2 fix: Retry yalnız wordData null olanda (yəni oyun başladıqda)
+    // BUG 3.2 fix: Retry yalnız wordData null olanda — stop when data arrives
     const retryTimers: ReturnType<typeof setTimeout>[] = [];
+    let dataReceived = false;
     [1000, 3000, 6000].forEach((delay) => {
       const timer = setTimeout(() => {
+        if (dataReceived) return; // Data arrived, no more retries
         setState((prev) => {
           if (!prev.wordData && socket.connected && roomCode) {
             console.log(`[useGame] Retry requestGameState after ${delay}ms`);
@@ -75,9 +77,17 @@ export function useGame(roomCode?: string) {
       retryTimers.push(timer);
     });
 
+    // Error event listener
+    function onError(err: { message: string }) {
+      console.error(`[useGame] Socket error:`, err.message);
+    }
+    socket.on("error", onError);
+
     // Handler ref-ləri — cleanup-da düzgün silmək üçün
     function onGameWord(data: GameWordData) {
       console.log(`[useGame] game:word received! role=${data.role}, word=${data.word ? "***" : "null"}`);
+      dataReceived = true; // Stop retry attempts
+      retryTimers.forEach(clearTimeout); // Clear pending retries
       setState((prev) => ({ ...prev, wordData: data }));
     }
 
@@ -198,6 +208,7 @@ export function useGame(roomCode?: string) {
       retryTimers.forEach(clearTimeout);
       if (roundTransitionTimer) clearTimeout(roundTransitionTimer);
       socket.off("connect", requestGameState);
+      socket.off("error", onError);
       socket.off("game:word", onGameWord);
       socket.off("round:start", onRoundStart);
       socket.off("clue:update", onClueUpdate);

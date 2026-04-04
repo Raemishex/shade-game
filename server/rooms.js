@@ -240,6 +240,10 @@ function saveRooms() {
  */
 function sendGameState(socket, room) {
   try {
+    if (!room || !room.game) {
+      console.log(`[sendGameState] No room or game state — cannot send`);
+      return;
+    }
     const { getCategoryName } = require("./wordLoader");
     const isImposter = room.game.imposters.includes(socket.data.userId);
 
@@ -269,8 +273,12 @@ function sendGameState(socket, room) {
       // Səsvermə fazasındadır
       socket.emit("voting:start");
     } else if (room.game.discussionTimer) {
-      // Müzakirə fazasındadır
-      socket.emit("discussion:start", room.settings.discussionTime);
+      // Müzakirə fazasındadır — send remaining time, not full duration
+      const elapsed = room.game._discussionStartTime
+        ? Math.floor((Date.now() - room.game._discussionStartTime) / 1000)
+        : 0;
+      const remaining = Math.max(0, (room.game._discussionDuration || room.settings.discussionTime) - elapsed);
+      socket.emit("discussion:start", remaining);
     } else {
       // İpucu fazasındadır
       socket.emit("round:start", room.game.currentRound);

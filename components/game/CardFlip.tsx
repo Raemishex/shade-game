@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { isFS5Active, getRoleName } from "@/lib/fs5";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -21,6 +21,15 @@ export default function CardFlip({ word, category, role, onViewed, onClose }: Ca
   const [isFlipped, setIsFlipped] = useState(false);
   const hasViewed = useRef(false);
   const doneTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Cleanup timer on unmount to prevent memory leak
+  useEffect(() => {
+    return () => {
+      if (doneTimerRef.current) {
+        clearTimeout(doneTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleShowCard = useCallback(() => {
     setStage("card");
