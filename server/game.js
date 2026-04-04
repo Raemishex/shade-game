@@ -349,7 +349,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
   socket.on("clue:submit", (data) => {
     try {
       if (!checkRateLimit(socket, "clue:submit", 2000)) return;
-      const roomCode = socket.data.roomCode;
+      const roomCode = socket.data.roomCode || socket.handshake.auth.roomCode;
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
 
@@ -362,7 +362,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       let { clue } = data;
       if (!clue || typeof clue !== "string") return;
 
-      // Input sanitization — HTML tagları və xüsusi simvolları təmizlə
+      // Input sanitization — HTML tagları təmizlə
       clue = clue
         .replace(/[<>&"'/\\]/g, "")
         .replace(/\s+/g, " ")
@@ -404,7 +404,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
   socket.on("vote:cast", (data) => {
     try {
       if (!checkRateLimit(socket, "vote:cast", 2000)) return;
-      const roomCode = socket.data.roomCode;
+      const roomCode = socket.data.roomCode || socket.handshake.auth.roomCode;
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
 

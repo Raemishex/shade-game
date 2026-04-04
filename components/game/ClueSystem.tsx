@@ -66,10 +66,6 @@ export default function ClueSystem({
       setError(t("clue.writeClue"));
       return;
     }
-    if (trimmed.includes(" ")) {
-      setError(t("clue.oneWordOnly"));
-      return;
-    }
     if (trimmed.length > 30) {
       setError(t("clue.maxChars"));
       return;
@@ -202,7 +198,7 @@ export default function ClueSystem({
               type="text"
               value={input}
               onChange={(e) => {
-                setInput(e.target.value.replace(/\s/g, ""));
+                setInput(e.target.value);
                 setError("");
               }}
               onKeyDown={handleKeyDown}

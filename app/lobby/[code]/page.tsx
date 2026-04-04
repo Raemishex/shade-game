@@ -56,8 +56,9 @@ export default function LobbyPage() {
       userId: guest.userId,
       displayName: guest.displayName,
       avatarColor: guest.avatarColor,
+      roomCode: code,
     }),
-    [guest]
+    [guest, code]
   );
 
   const { isConnected } = useSocket(auth);

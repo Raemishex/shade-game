@@ -41,8 +41,9 @@ export default function GamePage() {
       userId: guest.userId,
       displayName: guest.displayName,
       avatarColor: guest.avatarColor,
+      roomCode: code,
     } : null,
-    [guest]
+    [guest, code]
   );
 
   const { isConnected } = useSocket(auth ?? undefined);

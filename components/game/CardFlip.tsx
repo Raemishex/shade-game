@@ -149,10 +149,7 @@ export default function CardFlip({ word, category, role, onViewed, onClose }: Ca
               ease: [0.4, 0, 0.2, 1],
             }}
             onMouseDown={(e) => { e.preventDefault(); handleFlipIn(); }}
-            onMouseUp={(e) => { e.preventDefault(); handleFlipOut(); }}
-            onMouseLeave={handleFlipOut}
             onTouchStart={(e) => { e.preventDefault(); handleFlipIn(); }}
-            onTouchEnd={(e) => { e.preventDefault(); handleFlipOut(); }}
           >
             {/* ARXA ÜZ */}
             <div
@@ -329,6 +326,16 @@ export default function CardFlip({ word, category, role, onViewed, onClose }: Ca
                     {roleName}
                   </span>
                 </div>
+                {/* Seen button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleFlipOut();
+                  }}
+                  className="mt-6 px-6 py-2 bg-dark text-gold rounded-xl text-xs font-medium border border-gold/30 hover:bg-gold/10 transition-colors"
+                >
+                  {t("card.iSawIt") || "Gördüm"}
+                </button>
                 {/* Footer */}
                 <div className="mt-[18px] pt-3 border-t border-[#a09678]/10">
                   <p className="text-[8px] text-[#a89878] tracking-[2px] uppercase">

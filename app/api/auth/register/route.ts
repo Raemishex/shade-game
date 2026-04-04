@@ -78,10 +78,11 @@ export async function POST(req: NextRequest) {
 
     let user;
 
-    // Guest istifadəçi varsa — hesaba çevir (3.4 fix: fallback əgər DB-də yoxdursa)
-    // guestUserId "guest_xxx" formatındadır — MongoDB ObjectId deyil, skip et
-    if (guestUserId && /^[0-9a-fA-F]{24}$/.test(guestUserId)) {
-      user = await User.findById(guestUserId).catch(() => null);
+    // Guest istifadəçi varsa — hesaba çevir
+    // guestUserId həm ObjectId həm də "guest_" formatında ola bilər
+    const isObjectId = /^[0-9a-fA-F]{24}$/.test(guestUserId);
+    if (guestUserId && (isObjectId || guestUserId.startsWith("guest_"))) {
+      user = isObjectId ? await User.findById(guestUserId).catch(() => null) : null;
       if (user && user.isGuest) {
         user.displayName = displayName;
         user.email = email.toLowerCase();

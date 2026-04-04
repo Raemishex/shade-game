@@ -152,6 +152,7 @@ io.use((socket, next) => {
 
     socket.data.displayName = sanitizedName;
     socket.data.avatarColor = socket.handshake.auth.avatarColor || "#C8A44E";
+    socket.data.roomCode = socket.handshake.auth.roomCode || null;
 
     next();
   } catch (err) {
@@ -251,12 +252,14 @@ io.on("connection", (socket) => {
   // ========== Reconnect ==========
   socket.on("player:reconnect", (data) => {
     try {
-      if (!data || !data.roomCode) return;
+      const roomCode = data?.roomCode || socket.data.roomCode;
+      if (!roomCode) return;
 
-      socket.join(data.roomCode);
-      socket.to(data.roomCode).emit("player:reconnect", socket.data.userId);
+      socket.data.roomCode = roomCode;
+      socket.join(roomCode);
+      socket.to(roomCode).emit("player:reconnect", socket.data.userId);
 
-      console.log(`[reconnect] ${socket.data.displayName} → room ${data.roomCode}`);
+      console.log(`[reconnect] ${socket.data.displayName} → room ${roomCode}`);
     } catch (err) {
       console.error("[player:reconnect] Error:", err.message);
     }

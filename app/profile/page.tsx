@@ -156,7 +156,10 @@ export default function ProfilePage() {
     fetch("/api/auth/me", { signal: controller.signal })
       .then((res) => {
         clearTimeout(timeout);
-        if (!res.ok) return null;
+        if (!res.ok) {
+          setLoading(false); // DB down olsa belə loading dayandır ki guest profil görünsün
+          return null;
+        }
         return res.json();
       })
       .then((data) => {
