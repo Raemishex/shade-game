@@ -259,29 +259,28 @@ function sendGameState(socket, room) {
 
     socket.emit("game:word", wordData);
 
-    // Bütün raund ipucularını göndər (keçmiş raundlar + cari)
-    if (room.game.rounds.length > 0) {
-      for (const round of room.game.rounds) {
-        if (round.clues.length > 0) {
-          socket.emit("clue:update", round.clues);
-        }
-      }
-    }
-
-    // Fazaya uyğun event göndər
+    // Fazaya uyğun event göndər (İlk olaraq fazanı göndəririk ki, client hansı raundda olduğumuzu bilsin)
     if (room.status === "voting") {
-      // Səsvermə fazasındadır
       socket.emit("voting:start");
     } else if (room.game.discussionTimer) {
-      // Müzakirə fazasındadır — send remaining time, not full duration
       const elapsed = room.game._discussionStartTime
         ? Math.floor((Date.now() - room.game._discussionStartTime) / 1000)
         : 0;
       const remaining = Math.max(0, (room.game._discussionDuration || room.settings.discussionTime) - elapsed);
       socket.emit("discussion:start", remaining);
     } else {
-      // İpucu fazasındadır
       socket.emit("round:start", room.game.currentRound);
+    }
+
+    // Bütün raund ipucularını və keçmişi vahid event-lə göndər (BUG FIX: Reconnect zamanı ipucuların itməməsi üçün)
+    const history = room.game.rounds.map(r => ({
+      roundNumber: r.roundNumber,
+      clues: r.clues
+    })).filter(r => r.clues.length > 0);
+
+    if (history.length > 0) {
+      console.log(`[sendGameState] Sending game:history with ${history.length} rounds to ${socket.data.displayName}`);
+      socket.emit("game:history", history);
     }
   } catch (err) {
     console.error("[sendGameState] Error:", err.message);

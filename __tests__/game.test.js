@@ -312,7 +312,7 @@ describe("game", () => {
 
   // ============== Round End Logic ==============
   describe("handleRoundEnd", () => {
-    test("son raundda müzakirə başlayır", () => {
+    test("son raundda səsvermə başlayır", () => {
       const room = createTestRoom("REND1", 4, { rounds: 2 });
       const { io, roomEvents } = createMockIO();
 
@@ -324,11 +324,9 @@ describe("game", () => {
 
       handleRoundEnd(io, "REND1", room);
 
-      const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
-      expect(discussionEvent).toBeDefined();
-      expect(discussionEvent.data).toBe(60); // default discussion time
-
-      // Discussion interval təmizlə
+      const votingEvent = roomEvents.find((e) => e.event === "voting:start");
+      expect(votingEvent).toBeDefined();
+      expect(room.status).toBe("voting");
     });
 
     test("son raund deyilsə növbəti raund başlayır", () => {
@@ -354,7 +352,7 @@ describe("game", () => {
 
     });
 
-    test("davam raundunda 1 raunddan sonra müzakirə başlayır", () => {
+    test("davam raundunda 1 raunddan sonra səsvermə başlayır", () => {
       const room = createTestRoom("REND3", 4, { rounds: 2 });
       const { io, roomEvents } = createMockIO();
 
@@ -369,10 +367,10 @@ describe("game", () => {
 
       handleRoundEnd(io, "REND3", room);
 
-      // Davam dövrü: currentRound(3) >= maxRoundThisCycle(3) → müzakirə
-      const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
-      expect(discussionEvent).toBeDefined();
-
+      // Davam dövrü: currentRound(3) >= maxRoundThisCycle(3) → səsvermə
+      const votingEvent = roomEvents.find((e) => e.event === "voting:start");
+      expect(votingEvent).toBeDefined();
+      expect(room.status).toBe("voting");
     });
 
     test("dublikat çağırışları bloklayır (_roundProcessing)", () => {
@@ -388,9 +386,9 @@ describe("game", () => {
       handleRoundEnd(io, "REND4", room);
       handleRoundEnd(io, "REND4", room); // dublikat
 
-      // Yalnız 1 dəfə discussion:start emit olunmalıdır
-      const discussionEvents = roomEvents.filter((e) => e.event === "discussion:start");
-      expect(discussionEvents.length).toBe(1);
+      // Yalnız 1 dəfə voting:start emit olunmalıdır
+      const votingEvents = roomEvents.filter((e) => e.event === "voting:start");
+      expect(votingEvents.length).toBe(1);
 
     });
   });
