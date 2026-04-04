@@ -103,6 +103,7 @@
     "onlyYou": "Only you will see it",
     "holdToSee": "Hold to see",
     "releasesToClose": "Release to close",
+    "iSawIt": "I saw it",
     "dontShow": "Don't show anyone!"
   },
   "clue": {
@@ -135,6 +136,7 @@
     "chooseSuspect": "Choose your suspect",
     "clue": "Clue:",
     "confirmVote": "Confirm vote",
+    "noPlayersToVote": "No players to vote for",
     "voted": "Vote submitted",
     "voteNobody": "Vote for nobody"
   },

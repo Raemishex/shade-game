@@ -103,6 +103,7 @@
     "onlyYou": "Yalnız sən görəcəksən",
     "holdToSee": "Basıb saxla — görmək üçün",
     "releasesToClose": "Buraxanda bağlanır",
+    "iSawIt": "Gördüm",
     "dontShow": "Kimsəyə göstərmə!"
   },
   "clue": {
@@ -135,6 +136,7 @@
     "chooseSuspect": "Şübhəlini seç",
     "clue": "İpucu:",
     "confirmVote": "Səsveri təsdiqlə",
+    "noPlayersToVote": "Səs vermək üçün oyunçu yoxdur",
     "voted": "Səs verildi",
     "voteNobody": "Heç kimə səs vermə"
   },

@@ -20,6 +20,7 @@ export interface SocketAuth {
   userId: string;
   displayName: string;
   avatarColor?: string;
+  roomCode?: string;
 }
 
 export function getSocket(auth?: SocketAuth): TypedSocket {
@@ -34,7 +35,7 @@ export function getSocket(auth?: SocketAuth): TypedSocket {
       auth: auth || {},
     }) as TypedSocket;
   } else if (auth) {
-    (socket as Socket).auth = auth;
+    (socket as Socket).auth = { ...(socket as Socket).auth, ...auth };
   }
   return socket;
 }

@@ -95,6 +95,14 @@ export default function VotingPanel({
   // Votable players (exclude self)
   const votablePlayers = players.filter((p) => p.userId !== currentUserId);
 
+  if (votablePlayers.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center flex-1 p-10 text-center">
+        <p className="text-cream/50 font-nunito">{t("voting.noPlayersToVote") || "Səs vermək üçün oyunçu yoxdur"}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col flex-1">
       {/* Header */}
