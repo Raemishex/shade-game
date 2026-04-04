@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { getGuestUser } from "@/lib/guest";
@@ -13,7 +13,7 @@ import ClueSystem from "@/components/game/ClueSystem";
 import DiscussionChat from "@/components/game/DiscussionChat";
 import VotingPanel from "@/components/game/VotingPanel";
 import ResultScreen from "@/components/game/ResultScreen";
-// EmojiBar and EmojiFloat removed — not used in current layout
+import EmojiFloat, { type EmojiFloatAPI } from "@/components/game/EmojiFloat";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useSound } from "@/hooks/useSound";
 import { GameNotifications } from "@/lib/notifications";
@@ -21,7 +21,6 @@ import { isFS5Active, getRoleName } from "@/lib/fs5";
 import { getDailyChallenge, completeDailyChallenge } from "@/lib/daily";
 import type { RoomPlayer } from "@/types";
 
-// Emoji bar
 const EMOJI_LIST = ["😂", "🤔", "😱", "👏", "🔥"];
 
 export default function GamePage() {
@@ -47,7 +46,14 @@ export default function GamePage() {
   );
 
   const { isConnected } = useSocket(auth ?? undefined);
-  const { room } = useRoom(code);
+  const { room, joinRoom } = useRoom(code);
+
+  // Game page-ə keçəndə room state sıfırlanır — yenidən join et ki player siyahısı dolsun
+  useEffect(() => {
+    if (!isConnected || !code) return;
+    joinRoom(code).catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isConnected, code]);
   const {
     wordData,
     currentRound,
@@ -66,6 +72,7 @@ export default function GamePage() {
   } = useGame(code);
 
   const { playGameMusic, playVotingMusic, playFlip, playTimerEnd, playEmoji, stopMusic } = useSound();
+  const emojiFloatRef = useRef<EmojiFloatAPI | null>(null);
   const [showCard, setShowCard] = useState(true);
   const [roundTimer, setRoundTimer] = useState(60);
   const [discussionEnded, setDiscussionEnded] = useState(false);
@@ -205,17 +212,26 @@ export default function GamePage() {
     playFlip();
   }, [playFlip]);
 
+  // Emoji receive — floating display
+  useEffect(() => {
+    const socket = getSocket();
+    function onEmojiReceive(data: { emoji: string; displayName: string }) {
+      emojiFloatRef.current?.addEmoji(data.emoji, data.displayName);
+    }
+    socket.on("emoji:receive", onEmojiReceive);
+    return () => { socket.off("emoji:receive", onEmojiReceive); };
+  }, []);
+
   // Send emoji
   const handleEmoji = useCallback(
     (emoji: string) => {
       playEmoji();
       const socket = getSocket();
-      socket.emit("emoji:send", {
-        roomCode: code,
-        emoji,
-      });
+      socket.emit("emoji:send", { roomCode: code, emoji });
+      // Öz emojini də göstər
+      if (guest) emojiFloatRef.current?.addEmoji(emoji, guest.displayName);
     },
-    [code, guest?.userId]
+    [code, guest]
   );
 
   // Detect discussion end → show transition, then voting
@@ -338,6 +354,9 @@ export default function GamePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-dark relative">
+      {/* Floating emoji overlay */}
+      <EmojiFloat onRef={(api) => { emojiFloatRef.current = api; }} />
+
       {/* Round transition overlay */}
       <AnimatePresence>
         {roundTransition && (
