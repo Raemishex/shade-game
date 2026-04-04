@@ -52,6 +52,7 @@
     "notReady": "Not ready",
     "startGame": "Start game",
     "minPlayers": "Minimum 3 players required",
+    "waitingReady": "All players must be ready",
     "startFailed": "Could not start the game",
     "connectionLost": "Connection lost, reconnecting...",
     "fs5Active": "FS5 MODE ACTIVE",

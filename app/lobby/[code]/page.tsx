@@ -82,7 +82,8 @@ export default function LobbyPage() {
   const isHost = room?.hostId === guest.userId;
   const myPlayer = room?.players.find((p) => p.userId === guest.userId);
   const playerCount = room?.players.length ?? 0;
-  const canStart = isHost && playerCount >= 3;
+  const allReady = room?.players.filter(p => p.userId !== room.hostId).every(p => p.isReady) ?? false;
+  const canStart = isHost && playerCount >= 3 && allReady;
 
   // Connection timeout — 6 saniyə ərzində bağlantı olmasa xəta göstər
   useEffect(() => {
@@ -577,7 +578,7 @@ export default function LobbyPage() {
           )}
           {isHost && !canStart && (
             <p className="text-[9px] text-cream/50 text-center tracking-wider font-nunito">
-              {t("lobby.minPlayers")}
+              {playerCount < 3 ? t("lobby.minPlayers") : t("lobby.waitingReady")}
             </p>
           )}
           {startError && (
@@ -688,7 +689,7 @@ export default function LobbyPage() {
 
           {isHost && !canStart && (
             <p className="text-[9px] text-cream/50 text-center tracking-wider font-nunito">
-              {t("lobby.minPlayers")}
+              {playerCount < 3 ? t("lobby.minPlayers") : t("lobby.waitingReady")}
             </p>
           )}
 

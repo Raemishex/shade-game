@@ -133,17 +133,17 @@ export default function CardFlip({ word, category, role, onViewed, onClose }: Ca
         >
           <motion.div
             className="w-[260px] h-[380px] relative cursor-pointer select-none"
-            style={{ transformStyle: "preserve-3d" }}
+            style={{ transformStyle: "preserve-3d", touchAction: "none", WebkitUserSelect: "none" }}
             animate={{ rotateY: isFlipped ? 180 : 0 }}
             transition={{
               duration: isFlipped ? 0.6 : 0.4,
               ease: [0.4, 0, 0.2, 1],
             }}
-            onMouseDown={handleFlipIn}
-            onMouseUp={handleFlipOut}
+            onMouseDown={(e) => { e.preventDefault(); handleFlipIn(); }}
+            onMouseUp={(e) => { e.preventDefault(); handleFlipOut(); }}
             onMouseLeave={handleFlipOut}
-            onTouchStart={handleFlipIn}
-            onTouchEnd={handleFlipOut}
+            onTouchStart={(e) => { e.preventDefault(); handleFlipIn(); }}
+            onTouchEnd={(e) => { e.preventDefault(); handleFlipOut(); }}
           >
             {/* ARXA ÜZ */}
             <div

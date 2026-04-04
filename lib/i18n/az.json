@@ -52,6 +52,7 @@
     "notReady": "Hazır deyiləm",
     "startGame": "Oyunu başlat",
     "minPlayers": "Min 3 oyunçu lazımdır",
+    "waitingReady": "Bütün oyunçular hazır olmalıdır",
     "startFailed": "Oyuna başladıla bilmədi",
     "connectionLost": "Bağlantı kəsildi, yenidən qoşulur...",
     "fs5Active": "FS5 MODU AKTİV",
