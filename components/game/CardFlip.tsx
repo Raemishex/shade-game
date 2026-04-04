@@ -10,9 +10,10 @@ interface CardFlipProps {
   category: string;
   role: "citizen" | "imposter";
   onViewed?: () => void;
+  onClose?: () => void;
 }
 
-export default function CardFlip({ word, category, role, onViewed }: CardFlipProps) {
+export default function CardFlip({ word, category, role, onViewed, onClose }: CardFlipProps) {
   const { t } = useTranslation();
   const fs5 = isFS5Active();
   const roleName = getRoleName(role, fs5);
@@ -44,8 +45,11 @@ export default function CardFlip({ word, category, role, onViewed }: CardFlipPro
     setIsFlipped(false);
     // Kart bağlandıqdan sonra done (rapid flip üçün əvvəlki timer-i təmizlə)
     if (doneTimerRef.current) clearTimeout(doneTimerRef.current);
-    doneTimerRef.current = setTimeout(() => setStage("done"), 500);
-  }, [isFlipped]);
+    doneTimerRef.current = setTimeout(() => {
+      setStage("done");
+      onClose?.();
+    }, 500);
+  }, [isFlipped, onClose]);
 
   // İlk toxunma hint ekranı
   if (stage === "hint") {

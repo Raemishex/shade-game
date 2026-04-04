@@ -288,10 +288,8 @@ export default function GamePage() {
         word={wordData.word}
         category={wordData.category}
         role={wordData.role}
-        onViewed={() => {
-          handleCardViewed();
-          setShowCard(false);
-        }}
+        onViewed={handleCardViewed}
+        onClose={() => setShowCard(false)}
       />
     );
   }
