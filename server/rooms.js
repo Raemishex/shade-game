@@ -75,8 +75,8 @@ function validateSettings(settings) {
     validSettings.rounds = Math.max(1, Math.min(5, settings.rounds));
   }
   
-  // Discussion time validation (30, 60, 90)
-  if (typeof settings.discussionTime === "number" && [30, 60, 90].includes(settings.discussionTime)) {
+  // Discussion time validation (0, 30, 60, 90) - 0 means skipped
+  if (typeof settings.discussionTime === "number" && [0, 30, 60, 90].includes(settings.discussionTime)) {
     validSettings.discussionTime = settings.discussionTime;
   }
   

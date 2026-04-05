@@ -60,6 +60,7 @@ export default function GamePage() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConnected, code, !!room]);
+
   const {
     wordData,
     currentRound,

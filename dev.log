@@ -1,0 +1,92 @@
+
+> shade@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+  - Environments: .env
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 2.9s
+ ○ Compiling /home ...
+ ✓ Compiled /home in 11.2s (1414 modules)
+ GET /home 200 in 12159ms
+ ✓ Compiled in 928ms (696 modules)
+ ○ Compiling /api/users/[id]/history ...
+ ✓ Compiled /leaderboard in 7.6s (826 modules)
+ ✓ Compiled in 852ms (686 modules)
+ GET /api/auth/me 200 in 9124ms
+ GET /leaderboard 200 in 3547ms
+ GET /api/users/guest_ubkr54rznmnm09cqy/history?limit=3 200 in 9279ms
+ GET /api/auth/me 200 in 31ms
+ ✓ Compiled /api/leaderboard in 200ms (838 modules)
+ ✓ Compiled /modes in 425ms (1530 modules)
+ GET /api/leaderboard?type=all&limit=50 200 in 2572ms
+ GET /modes 200 in 571ms
+History fetch error: MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/app/node_modules/mongoose/lib/connection.js:1168:11)
+    at NativeConnection.openUri (/app/node_modules/mongoose/lib/connection.js:1099:11) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  cause: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  }
+}
+Leaderboard error: MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/app/node_modules/mongoose/lib/connection.js:1168:11)
+    at NativeConnection.openUri (/app/node_modules/mongoose/lib/connection.js:1099:11) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  cause: TopologyDescription {
+    type: 'Unknown',
+    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: null,
+    maxElectionId: null,
+    maxSetVersion: null,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  }
+}

@@ -349,7 +349,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
   socket.on("clue:submit", (data) => {
     try {
       if (!checkRateLimit(socket, "clue:submit", 2000)) return;
-      const roomCode = socket.data.roomCode || socket.handshake.auth.roomCode;
+      const roomCode = socket.data.roomCode;
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
 
@@ -362,7 +362,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       let { clue } = data;
       if (!clue || typeof clue !== "string") return;
 
-      // Input sanitization — HTML tagları təmizlə
+      // Input sanitization — HTML tagları və xüsusi simvolları təmizlə
       clue = clue
         .replace(/[<>&"'/\\]/g, "")
         .replace(/\s+/g, " ")
@@ -390,10 +390,9 @@ function setupGameHandlers(io, socket, checkRateLimit) {
 
       console.log(`[clue] ${socket.data.displayName}: "${clue}" (round ${room.game.currentRound})`);
 
-      // Hamı ipucu verdisə avtomatik növbəti raunda və ya səsverməyə keç
+      // Hamı ipucu verdisə
       const activePlayers = getActivePlayers(room);
       if (currentRound.clues.length >= activePlayers.length) {
-        console.log(`[clue] All players submitted clues in room ${roomCode}. Advancing...`);
         handleRoundEnd(io, roomCode, room);
       }
     } catch (err) {
@@ -405,7 +404,7 @@ function setupGameHandlers(io, socket, checkRateLimit) {
   socket.on("vote:cast", (data) => {
     try {
       if (!checkRateLimit(socket, "vote:cast", 2000)) return;
-      const roomCode = socket.data.roomCode || socket.handshake.auth.roomCode;
+      const roomCode = socket.data.roomCode;
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
 
@@ -505,7 +504,6 @@ function handleRoundEnd(io, roomCode, room) {
     return;
   }
   room.game._roundProcessing = true;
-  console.log(`[round-end] Handling round end for room ${roomCode}`);
 
   // Taymeri təmizlə
   if (room.game.roundTimer) {
@@ -538,21 +536,69 @@ function handleRoundEnd(io, roomCode, room) {
       freshRoom.game._roundProcessing = false;
     }, ROUND_TRANSITION_DELAY_MS);
   } else {
-    // Bütün raundlar bitdi → BİRBAŞA səsvermə başlasın (Müzakirə fazası istifadəçinin istəyi ilə ləğv edildi)
-    console.log(`[round-end] All rounds finished in room ${roomCode}. Skipping discussion, starting voting.`);
+    // Bütün raundlar bitdi → müzakirə və ya səsvermə başlasın
+    const discussionTime = room.settings.discussionTime || 0;
 
-    room.status = "voting";
-    room.game.votes = [];
-    io.to(roomCode).emit("voting:start");
+    if (discussionTime > 0) {
+      io.to(roomCode).emit("discussion:start", discussionTime);
 
-    // 30s səsvermə taymeri
-    startVoteTimer(io, roomCode, room);
+      // Drift-ə davamlı taymer (başlanğıc vaxtına əsaslanır)
+      const discussionStartTime = Date.now();
+      room.game._discussionStartTime = discussionStartTime;
+      room.game._discussionDuration = discussionTime;
+      let lastEmittedSecond = discussionTime;
 
-    // Reset processing flag after a short delay to prevent double-triggers from near-simultaneous events
-    setTimeout(() => {
-      if (room.game) room.game._roundProcessing = false;
-    }, 500);
+      const discussionTimer = setInterval(() => {
+        const freshRoom = rooms.get(roomCode);
+        if (!freshRoom || !freshRoom.game || freshRoom.status !== "playing") {
+          clearInterval(discussionTimer);
+          return;
+        }
+
+        const elapsed = Math.floor((Date.now() - discussionStartTime) / 1000);
+        const timeLeft = Math.max(0, discussionTime - elapsed);
+
+        // Yalnız dəyişəndə emit et (dublikat qarşısını al)
+        if (timeLeft !== lastEmittedSecond) {
+          lastEmittedSecond = timeLeft;
+          io.to(roomCode).emit("discussion:timer", timeLeft);
+        }
+
+        if (timeLeft <= 0) {
+          clearInterval(discussionTimer);
+          freshRoom.game.discussionTimer = null;
+          io.to(roomCode).emit("discussion:end");
+
+          // Səsvermə başlasın
+          startVotingPhase(io, roomCode, freshRoom);
+          freshRoom.game._roundProcessing = false;
+        }
+      }, DISCUSSION_CHECK_INTERVAL_MS);
+
+      room.game.discussionTimer = discussionTimer;
+    } else {
+      // Müzakirə yoxdur, birbaşa səsverməyə
+      startVotingPhase(io, roomCode, room);
+      room.game._roundProcessing = false;
+    }
   }
+}
+
+/**
+ * Start the voting phase
+ */
+function startVotingPhase(io, roomCode, room) {
+  if (room.game.discussionTimer) {
+    clearInterval(room.game.discussionTimer);
+    room.game.discussionTimer = null;
+  }
+
+  room.status = "voting";
+  room.game.votes = [];
+  io.to(roomCode).emit("voting:start");
+
+  // 30s səsvermə taymeri
+  startVoteTimer(io, roomCode, room);
 }
 
 // ============== VOTE TIMER ==============
@@ -597,13 +643,14 @@ function handleVoteResult(io, roomCode, room) {
     console.log(`[vote-result] Already processing for room ${roomCode}, skipping duplicate`);
     return;
   }
-  room.game._voteProcessing = true;
 
-  // Səsvermə taymerini təmizlə
+  // Taymerləri dərhal təmizləyirik (mutex-dən əvvəl) ki, dublikat hadisələr gəlməsin
   if (room.game.voteTimer) {
     clearTimeout(room.game.voteTimer);
     room.game.voteTimer = null;
   }
+
+  room.game._voteProcessing = true;
 
   const votes = room.game.votes;
 
@@ -806,6 +853,7 @@ module.exports = {
   updatePlayerXP,
   saveGameToDB,
   cleanupGameState,
+  startVotingPhase,
   // Internal functions exported for testing
   startRoundTimer,
   handleRoundEnd,

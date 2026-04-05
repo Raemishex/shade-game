@@ -324,9 +324,11 @@ describe("game", () => {
 
       handleRoundEnd(io, "REND1", room);
 
-      const votingEvent = roomEvents.find((e) => e.event === "voting:start");
-      expect(votingEvent).toBeDefined();
-      expect(room.status).toBe("voting");
+      // Müzakirə fazası 60s olduğu üçün discussion:start gözləyirik
+      const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
+      expect(discussionEvent).toBeDefined();
+      expect(discussionEvent.data).toBe(60);
+      // Status otaqda change olunur
     });
 
     test("son raund deyilsə növbəti raund başlayır", () => {
@@ -367,10 +369,9 @@ describe("game", () => {
 
       handleRoundEnd(io, "REND3", room);
 
-      // Davam dövrü: currentRound(3) >= maxRoundThisCycle(3) → səsvermə
-      const votingEvent = roomEvents.find((e) => e.event === "voting:start");
-      expect(votingEvent).toBeDefined();
-      expect(room.status).toBe("voting");
+      // Davam dövrü: currentRound(3) >= maxRoundThisCycle(3) → müzakirə
+      const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
+      expect(discussionEvent).toBeDefined();
     });
 
     test("dublikat çağırışları bloklayır (_roundProcessing)", () => {
@@ -386,9 +387,9 @@ describe("game", () => {
       handleRoundEnd(io, "REND4", room);
       handleRoundEnd(io, "REND4", room); // dublikat
 
-      // Yalnız 1 dəfə voting:start emit olunmalıdır
-      const votingEvents = roomEvents.filter((e) => e.event === "voting:start");
-      expect(votingEvents.length).toBe(1);
+      // Yalnız 1 dəfə discussion:start emit olunmalıdır
+      const discussionEvents = roomEvents.filter((e) => e.event === "discussion:start");
+      expect(discussionEvents.length).toBe(1);
 
     });
   });

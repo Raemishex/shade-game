@@ -1,0 +1,11 @@
+
+> shade@0.1.0 server
+> node server/index.js
+
+[startup] Validation passed
+[uncaughtException] listen EADDRINUSE: address already in use 0.0.0.0:3001
+
+[UNCAUGHT_EXCEPTION] Graceful shutdown başladı...
+[room:cleanup] Saving rooms before shutdown...
+[shutdown] Bütün bağlantılar bağlanır...
+[shutdown] Server bağlandı.
