@@ -16,8 +16,8 @@ export interface FS5Config {
 }
 
 const fs5Config: FS5Config = {
-  citizenName: "Zorbalayıcı",
-  imposterName: "Şübhəli",
+  citizenName: "Proqramçı",
+  imposterName: "Haker",
   categoryId: "proqramlasma",
   categoryName: "Proqramlaşdırma",
 };

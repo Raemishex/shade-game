@@ -191,6 +191,21 @@ export function useGame(roomCode?: string) {
       setState((prev) => ({ ...prev, gameEnd: data }));
     }
 
+    function onGameHistory(history: RoundClues[]) {
+      console.log(`[useGame] game:history received! rounds=${history.length}`);
+      setState((prev) => {
+        // Cari raundun ipucularını tap (əgər tarixçədə varsa)
+        const currentRoundData = history.find(r => r.roundNumber === prev.currentRound);
+        const clues = currentRoundData ? currentRoundData.clues : prev.clues;
+
+        return {
+          ...prev,
+          allRoundClues: history,
+          clues: clues
+        };
+      });
+    }
+
     // Listener-ləri qeydiyyatdan keçir
     socket.on("game:word", onGameWord);
     socket.on("round:start", onRoundStart);
@@ -203,6 +218,7 @@ export function useGame(roomCode?: string) {
     socket.on("voting:start", onVotingStart);
     socket.on("vote:result", onVoteResult);
     socket.on("game:end", onGameEnd);
+    socket.on("game:history", onGameHistory);
 
     return () => {
       retryTimers.forEach(clearTimeout);
@@ -220,6 +236,7 @@ export function useGame(roomCode?: string) {
       socket.off("voting:start", onVotingStart);
       socket.off("vote:result", onVoteResult);
       socket.off("game:end", onGameEnd);
+      socket.off("game:history", onGameHistory);
     };
   }, [roomCode]);
 

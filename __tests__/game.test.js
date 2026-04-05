@@ -312,7 +312,7 @@ describe("game", () => {
 
   // ============== Round End Logic ==============
   describe("handleRoundEnd", () => {
-    test("son raundda müzakirə başlayır", () => {
+    test("son raundda səsvermə başlayır", () => {
       const room = createTestRoom("REND1", 4, { rounds: 2 });
       const { io, roomEvents } = createMockIO();
 
@@ -324,11 +324,11 @@ describe("game", () => {
 
       handleRoundEnd(io, "REND1", room);
 
+      // Müzakirə fazası 60s olduğu üçün discussion:start gözləyirik
       const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
       expect(discussionEvent).toBeDefined();
-      expect(discussionEvent.data).toBe(60); // default discussion time
-
-      // Discussion interval təmizlə
+      expect(discussionEvent.data).toBe(60);
+      // Status otaqda change olunur
     });
 
     test("son raund deyilsə növbəti raund başlayır", () => {
@@ -354,7 +354,7 @@ describe("game", () => {
 
     });
 
-    test("davam raundunda 1 raunddan sonra müzakirə başlayır", () => {
+    test("davam raundunda 1 raunddan sonra səsvermə başlayır", () => {
       const room = createTestRoom("REND3", 4, { rounds: 2 });
       const { io, roomEvents } = createMockIO();
 
@@ -372,7 +372,6 @@ describe("game", () => {
       // Davam dövrü: currentRound(3) >= maxRoundThisCycle(3) → müzakirə
       const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
       expect(discussionEvent).toBeDefined();
-
     });
 
     test("dublikat çağırışları bloklayır (_roundProcessing)", () => {

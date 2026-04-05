@@ -52,9 +52,15 @@ export default function GamePage() {
   // Game page-ə keçəndə room state sıfırlanır — yenidən join et ki player siyahısı dolsun
   useEffect(() => {
     if (!isConnected || !code) return;
-    joinRoom(code).catch(() => {});
+    // Artıq otaqdadırıqsa (məs. lobby-dən gəlmişik) təkrar join-ə ehtiyac yoxdur,
+    // amma səhifə refresh olunubsa lazımdır.
+    if (!room || room.players.length === 0) {
+      console.log(`[GamePage] Joining room ${code} to sync player list`);
+      joinRoom(code).catch(() => {});
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected, code]);
+  }, [isConnected, code, !!room]);
+
   const {
     wordData,
     currentRound,
@@ -237,6 +243,9 @@ export default function GamePage() {
 
   // Detect discussion end → show transition, then voting
   useEffect(() => {
+    if (isDiscussion && discussionTimeLeft !== null) {
+      setDiscussionEnded(false);
+    }
     if (!isDiscussion && discussionTimeLeft === null && messages.length > 0 && !isVoting && !discussionEnded) {
       // discussion just ended
       setDiscussionEnded(true);
@@ -311,8 +320,8 @@ export default function GamePage() {
     );
   }
 
-  // Waiting for game data
-  if (!wordData) {
+  // Waiting for game and room data (BUG FIX: room məlumatı gəlmədən oyuna girmə ki player list 0 olmasın)
+  if (!wordData || !room) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-dark px-6">
         <motion.div
@@ -501,7 +510,7 @@ export default function GamePage() {
               disabled={!!voteResult || !!gameEnd}
             />
           ) : isDiscussion ? (
-            <div className="md:hidden flex-1">
+            <div className="flex-1">
               <DiscussionChat
                 messages={messages}
                 allRoundClues={allRoundClues}

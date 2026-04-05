@@ -90,7 +90,7 @@ export default function ClueSystem({
       {/* Clue list */}
       <div ref={listRef} className="flex-1 overflow-y-auto px-4 py-2">
         {/* Previous rounds */}
-        {allRoundClues.map((round) => (
+        {allRoundClues.filter(r => r.roundNumber < currentRound).map((round) => (
           <div key={round.roundNumber} className="mb-2">
             {/* Round separator */}
             <div className="flex items-center gap-2 my-2">

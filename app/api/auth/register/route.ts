@@ -82,7 +82,13 @@ export async function POST(req: NextRequest) {
     // guestUserId həm ObjectId həm də "guest_" formatında ola bilər
     const isObjectId = /^[0-9a-fA-F]{24}$/.test(guestUserId);
     if (guestUserId && (isObjectId || guestUserId.startsWith("guest_"))) {
-      user = isObjectId ? await User.findById(guestUserId).catch(() => null) : null;
+      if (isObjectId) {
+        user = await User.findById(guestUserId).catch(() => null);
+      } else {
+        // Socket server-dən gələn guest_ ID-si ilə axtarış (username sütununda saxlanılırsa)
+        user = await User.findOne({ username: guestUserId }).catch(() => null);
+      }
+
       if (user && user.isGuest) {
         user.displayName = displayName;
         user.email = email.toLowerCase();
