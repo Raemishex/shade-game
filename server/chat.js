@@ -1,3 +1,5 @@
+const { rooms } = require("./rooms");
+
 // ============== CONSTANTS ==============
 const MAX_MESSAGE_LENGTH = 200;
 const MIN_MESSAGE_LENGTH = 1;
@@ -36,18 +38,25 @@ function setupChatHandlers(io, socket, checkRateLimit) {
     try {
       // Rate limit check with specific event name
       if (!checkRateLimit(socket, "discussion:message", CHAT_RATE_LIMIT_MS)) return;
-      
+
       // Validate roomCode first
       const roomCode = socket.data.roomCode;
       if (!roomCode) {
         console.log(`[discussion:message] No roomCode for ${socket.data.displayName}`);
         return;
       }
-      
+
+      // BUG-005 fix: Block eliminated players from sending chat messages
+      const room = rooms.get(roomCode);
+      if (room && room.game && room.game.eliminated.includes(socket.data.userId)) {
+        console.log(`[discussion:message] Blocked eliminated player ${socket.data.displayName}`);
+        return;
+      }
+
       // Validate message
       const message = data?.message;
       if (!message) return;
-      
+
       // Sanitize message
       const sanitized = sanitizeMessage(message);
       if (!sanitized) return;

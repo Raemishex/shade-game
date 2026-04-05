@@ -743,7 +743,8 @@ function handleVoteResult(io, roomCode, room) {
     const xpDistribution = room.players.map((p) => {
       const isImposter = room.game.imposters.includes(p.userId);
       const isEliminated = room.game.eliminated.includes(p.userId);
-      const isDisconnected = !io.sockets.sockets.get(p.socketId);
+      // BUG-002 fix: socketId null olan player həmişə disconnected sayılır
+      const isDisconnected = !p.socketId || !io.sockets.sockets.get(p.socketId);
 
       // Tərk edən → 0 XP
       if (isDisconnected) {
@@ -782,24 +783,6 @@ function handleVoteResult(io, roomCode, room) {
       return { userId: p.userId, displayName: p.displayName, xp, breakdown };
     });
 
-    // DB əməliyyatları
-    const dbOps = [
-      saveGameToDB(room, winners, xpDistribution, eliminatedId, wasImposter, voteBreakdown, voteDetails).catch(
-        (err) => console.error("[saveGame] Error:", err.message)
-      ),
-      updatePlayerXP(xpDistribution, winners, room.game.imposters).catch((err) =>
-        console.error("[xp-update] Error:", err.message)
-      ),
-    ];
-
-    // Bütün DB əməliyyatları bitəndən sonra mutex təmizlə
-    Promise.allSettled(dbOps).then(() => {
-      if (room.game) {
-        room.game._voteProcessing = false;
-        room.game._roundProcessing = false;
-      }
-    });
-
     // Capture game data BEFORE cleanup (room.game will be nulled)
     const gameEndPayload = {
       winners,
@@ -811,8 +794,24 @@ function handleVoteResult(io, roomCode, room) {
       allClues: room.game.rounds.flatMap((r) => r.clues),
     };
 
+    // DB əməliyyatları (fire-and-forget — game state artıq lazım deyil)
+    const impostersSnapshot = [...room.game.imposters];
+    saveGameToDB(room, winners, xpDistribution, eliminatedId, wasImposter, voteBreakdown, voteDetails)
+      .catch((err) => console.error("[saveGame] Error:", err.message));
+    updatePlayerXP(xpDistribution, winners, impostersSnapshot)
+      .catch((err) => console.error("[xp-update] Error:", err.message));
+
     // Cleanup game state (schedules room.game = null after delay)
+    // Mutex flags cleared AFTER cleanupGameState so no new handlers can enter
+    // during the 3s window before room.game is nulled
     cleanupGameState(room);
+
+    // room.game still exists here (nulled after GAME_END_DELAY_MS by cleanupGameState)
+    // Clear mutexes now — room.status="finished" blocks new vote/clue handlers anyway
+    if (room.game) {
+      room.game._voteProcessing = false;
+      room.game._roundProcessing = false;
+    }
 
     setTimeout(() => {
       io.to(roomCode).emit("game:end", gameEndPayload);

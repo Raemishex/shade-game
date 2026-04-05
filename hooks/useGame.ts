@@ -51,6 +51,9 @@ export function useGame(roomCode?: string) {
         console.log(`[useGame] room:join callback: success=${response?.success}`);
         if (response?.success) {
           socket.emit("game:requestState", { roomCode });
+        } else {
+          // BUG-015 fix: log the failure so the loading timeout can surface it
+          console.warn(`[useGame] room:join failed: ${response?.error || "unknown error"}`);
         }
       });
     }
