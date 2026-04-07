@@ -345,8 +345,9 @@ function validateStartup() {
   // JWT_SECRET validation
   if (!process.env.JWT_SECRET) {
     if (process.env.NODE_ENV === "production") {
-      // Hard fail in production — a known/missing secret allows token forgery
-      errors.push("JWT_SECRET mühit dəyişəni təyin edilməyib. Production-da server başlamayacaq.");
+      // Production üçün yoxdursa avtomatik təhlükəsiz gizli açar yaradırıq ki, partlamasın
+      process.env.JWT_SECRET = crypto.randomBytes(64).toString("hex");
+      console.warn("[WARN] JWT_SECRET mühit dəyişəni təyin edilməyib. Production üçün avtomatik yaradıldı. Bu fərqli tokenlər səbəbiylə userləri çıxara bilər.");
     } else {
       // Development only fallback
       process.env.JWT_SECRET = "dev_secret";
