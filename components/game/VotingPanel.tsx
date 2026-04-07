@@ -90,7 +90,7 @@ export default function VotingPanel({
   // Last 3 discussion messages
   const lastMessages = messages.slice(-3);
 
-  const timerLow = voteTimer <= 10;
+  const timerLow = voteTimer <= 18;
 
   // Votable players (exclude self)
   const votablePlayers = players.filter((p) => p.userId !== currentUserId);

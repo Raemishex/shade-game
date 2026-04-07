@@ -25,6 +25,14 @@ const MAX_VISIBLE = 5;
 export default function EmojiFloat({ onRef }: EmojiFloatProps) {
   const [emojis, setEmojis] = useState<FloatingEmoji[]>([]);
   const idCounter = useRef(0);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  // Unmount-da bütün gözləyən timerları təmizlə
+  useEffect(() => {
+    return () => {
+      timersRef.current.forEach(clearTimeout);
+    };
+  }, []);
 
   const addEmoji = useCallback((emoji: string, fromName: string) => {
     const id = ++idCounter.current;
@@ -37,10 +45,12 @@ export default function EmojiFloat({ onRef }: EmojiFloatProps) {
       return next.length > MAX_VISIBLE ? next.slice(-MAX_VISIBLE) : next;
     });
 
-    // 1.5s sonra sil
-    setTimeout(() => {
+    // 1.8s sonra sil — timer-i ref-də saxla ki unmount-da clear edilsin
+    const timer = setTimeout(() => {
       setEmojis((prev) => prev.filter((e) => e.id !== id));
+      timersRef.current = timersRef.current.filter((t) => t !== timer);
     }, 1800);
+    timersRef.current.push(timer);
   }, []);
 
   // Ref ilə API-ni paylaş

@@ -135,7 +135,7 @@ export interface ServerToClientEvents {
   "clue:update": (clues: Clue[]) => void;
   "round:start": (roundNumber: number) => void;
   "round:end": (roundNumber: number) => void;
-  "discussion:start": (duration: number) => void;
+  "discussion:start": (payload: number | { duration: number; serverTimestamp: number }) => void;
   "discussion:message": (message: ChatMessage) => void;
   "discussion:timer": (secondsLeft: number) => void;
   "discussion:end": () => void;
@@ -148,7 +148,7 @@ export interface ServerToClientEvents {
 
 export interface ClientToServerEvents {
   "room:create": (data: { settings?: Partial<RoomSettings> }, callback?: (response: { success: boolean; room?: Room; error?: string }) => void) => void;
-  "room:join": (data: { roomCode: string }, callback?: (response: { success: boolean; room?: Room; error?: string }) => void) => void;
+  "room:join": (data: { roomCode: string; isSpectator?: boolean }, callback?: (response: { success: boolean; room?: Room; error?: string }) => void) => void;
   "room:leave": (data: { roomCode?: string }, callback?: (response: { success: boolean }) => void) => void;
   "room:settings": (data: { roomCode?: string; settings: Partial<RoomSettings> }) => void;
   "player:ready": (data: { roomCode?: string; isReady: boolean }) => void;

@@ -342,15 +342,16 @@ process.on("uncaughtException", (err) => {
 function validateStartup() {
   const errors = [];
   
-  // JWT_SECRET validation for production
-  if (process.env.NODE_ENV === "production" && !process.env.JWT_SECRET) {
-    console.warn("[WARN] JWT_SECRET is missing in production! Using fallback for development safety, but please configure it.");
-    // In a real production scenario, we should still fail, but for this task
-    // I will ensure it doesn't crash if the user hasn't set it yet.
-    process.env.JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_for_stability_change_me_in_production";
-  } else if (!process.env.JWT_SECRET) {
-    // Development mode fallback
-    process.env.JWT_SECRET = "dev_secret";
+  // JWT_SECRET validation
+  if (!process.env.JWT_SECRET) {
+    if (process.env.NODE_ENV === "production") {
+      // Hard fail in production — a known/missing secret allows token forgery
+      errors.push("JWT_SECRET mühit dəyişəni təyin edilməyib. Production-da server başlamayacaq.");
+    } else {
+      // Development only fallback
+      process.env.JWT_SECRET = "dev_secret";
+      console.warn("[WARN] JWT_SECRET not set, using dev_secret for local development only.");
+    }
   }
   
   if (errors.length > 0) {

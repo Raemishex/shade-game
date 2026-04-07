@@ -329,6 +329,9 @@ export default function ProfilePage() {
               <span className="text-[10px] text-cream/50 tracking-[1.5px] uppercase">
                 {t("profile.achievements")}
               </span>
+              <button className="text-[10px] text-gold/60 font-nunito hover:text-gold transition-colors">
+                {t("profile.seeAll") || "Hamısı ↗"}
+              </button>
             </div>
             <div className="flex gap-2.5 mb-4 overflow-x-auto pb-1">
               {BADGES.slice(0, 4).map((badge) => {
@@ -538,6 +541,22 @@ export default function ProfilePage() {
 
           </div>
         </div>
+
+        {/* Legal links */}
+        <div className="flex justify-center gap-3 pt-2 pb-6 px-5">
+          <button className="text-[9px] text-cream/25 font-nunito hover:text-cream/50 transition-colors">
+            {t("profile.terms") || "İstifadə şərtləri"}
+          </button>
+          <span className="text-[9px] text-cream/15">·</span>
+          <button className="text-[9px] text-cream/25 font-nunito hover:text-cream/50 transition-colors">
+            {t("profile.privacy") || "Məxfilik siyasəti"}
+          </button>
+          <span className="text-[9px] text-cream/15">·</span>
+          <button className="text-[9px] text-cream/25 font-nunito hover:text-cream/50 transition-colors">
+            {t("profile.contact") || "Əlaqə"}
+          </button>
+        </div>
+
       </div>
     </div>
   );

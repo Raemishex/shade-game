@@ -263,11 +263,11 @@ function sendGameState(socket, room) {
     if (room.status === "voting") {
       socket.emit("voting:start");
     } else if (room.game.discussionTimer) {
-      const elapsed = room.game._discussionStartTime
-        ? Math.floor((Date.now() - room.game._discussionStartTime) / 1000)
-        : 0;
-      const remaining = Math.max(0, (room.game._discussionDuration || room.settings.discussionTime) - elapsed);
-      socket.emit("discussion:start", remaining);
+      // Send serverTimestamp so rejoining client can calculate correct elapsed time
+      socket.emit("discussion:start", {
+        duration: room.game._discussionDuration || room.settings.discussionTime,
+        serverTimestamp: room.game._discussionStartTime || Date.now(),
+      });
     } else {
       socket.emit("round:start", room.game.currentRound);
     }
@@ -674,6 +674,13 @@ function setupRoomHandlers(io, socket, checkRateLimit) {
         
         console.log(`[disconnect] ${socket.data.displayName} disconnected from game ${roomCode} (60s reconnect)`);
         
+        // Clear any existing reconnect timeout for this user before setting a new one
+        const existing = reconnectTimeouts.get(socket.data.userId);
+        if (existing) {
+          clearTimeout(existing.timer);
+          reconnectTimeouts.delete(socket.data.userId);
+        }
+
         // Set reconnect timeout
         const timeout = setTimeout(() => {
           const currentRoom = rooms.get(roomCode);

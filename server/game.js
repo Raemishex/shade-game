@@ -62,29 +62,39 @@ async function updatePlayerXP(xpDistribution, winners, imposters) {
   const User = mongoose.models.User || mongoose.model("User", new mongoose.Schema({}, { strict: false }));
 
   const updatePromises = xpDistribution.map(async (entry) => {
+    // Skip guest users — they have no DB record
+    if (!entry.userId || entry.userId.startsWith("guest_")) return;
     if (entry.xp <= 0) return;
 
     try {
-      const user = await User.findById(entry.userId);
-      if (!user) return;
-
       const isImposter = imposters.includes(entry.userId);
       const isWinner =
         (winners === "citizens" && !isImposter) ||
         (winners === "imposters" && isImposter);
 
-      user.xp = (user.xp || 0) + entry.xp;
-      user.level = calculateLevelFromXP(user.xp);
-      user.stats = user.stats || { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 };
-      user.stats.totalGames += 1;
-      if (isWinner) user.stats.wins += 1;
-      if (isImposter) {
-        user.stats.imposterGames += 1;
-        if (isWinner) user.stats.imposterWins += 1;
+      // Atomic $inc to avoid race conditions when player finishes multiple games simultaneously
+      const statsInc = {
+        xp: entry.xp,
+        "stats.totalGames": 1,
+        ...(isWinner ? { "stats.wins": 1 } : {}),
+        ...(isImposter ? { "stats.imposterGames": 1 } : {}),
+        ...(isImposter && isWinner ? { "stats.imposterWins": 1 } : {}),
+      };
+
+      const updated = await User.findByIdAndUpdate(
+        entry.userId,
+        { $inc: statsInc },
+        { new: true }
+      );
+      if (!updated) return;
+
+      // Update level based on new XP total
+      const newLevel = calculateLevelFromXP(updated.xp);
+      if (newLevel !== updated.level) {
+        await User.findByIdAndUpdate(entry.userId, { $set: { level: newLevel } });
       }
 
-      await user.save();
-      console.log(`[xp-update] ${entry.displayName}: +${entry.xp} XP → total ${user.xp}, LVL ${user.level}`);
+      console.log(`[xp-update] ${entry.displayName}: +${entry.xp} XP → total ${updated.xp}, LVL ${newLevel}`);
     } catch (err) {
       console.error(`[xp-update] Failed for ${entry.userId}:`, err.message);
     }
@@ -353,6 +363,9 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
 
+      // Only accept clues during the playing phase (not voting/finished)
+      if (room.status !== "playing") return;
+
       // Verify player is in this room
       if (!room.players.find((p) => p.userId === socket.data.userId)) return;
 
@@ -407,6 +420,9 @@ function setupGameHandlers(io, socket, checkRateLimit) {
       const roomCode = socket.data.roomCode;
       const room = rooms.get(roomCode);
       if (!room || !room.game) return;
+
+      // Only accept votes during the voting phase
+      if (room.status !== "voting") return;
 
       // Verify player is in this room
       if (!room.players.find((p) => p.userId === socket.data.userId)) return;
@@ -487,17 +503,20 @@ function startRoundTimer(io, roomCode, room) {
     if (changed) {
       io.to(roomCode).emit("clue:update", currentRound.clues);
       console.log(`[timer] Round ${freshRoom.game.currentRound} timeout — auto-submitted for missing players`);
+    }
 
-      // Hamı tamamsa raund bitir
-      if (currentRound.clues.length >= activePlayers.length) {
-        handleRoundEnd(io, roomCode, freshRoom);
-      }
+    // Always resolve round when timer fires, even if no new clues were added
+    if (currentRound.clues.length >= activePlayers.length) {
+      handleRoundEnd(io, roomCode, freshRoom);
     }
   }, ROUND_TIMER_MS);
 }
 
 // ============== ROUND END HANDLER ==============
 function handleRoundEnd(io, roomCode, room) {
+  // Guard: game may have been cleaned up
+  if (!room.game) return;
+
   // Race condition qarşısını al
   if (room.game._roundProcessing) {
     console.log(`[round-end] Already processing for room ${roomCode}, skipping duplicate`);
@@ -540,12 +559,14 @@ function handleRoundEnd(io, roomCode, room) {
     const discussionTime = room.settings.discussionTime || 0;
 
     if (discussionTime > 0) {
-      io.to(roomCode).emit("discussion:start", discussionTime);
-
       // Drift-ə davamlı taymer (başlanğıc vaxtına əsaslanır)
       const discussionStartTime = Date.now();
       room.game._discussionStartTime = discussionStartTime;
       room.game._discussionDuration = discussionTime;
+
+      // serverTimestamp göndər — client rejoin-da düzgün sync edə bilsin
+      io.to(roomCode).emit("discussion:start", { duration: discussionTime, serverTimestamp: discussionStartTime });
+
       let lastEmittedSecond = discussionTime;
 
       const discussionTimer = setInterval(() => {
@@ -628,16 +649,20 @@ function startVoteTimer(io, roomCode, room) {
 
     if (changed) {
       console.log(`[vote-timer] Auto-submitted null votes for missing players in room ${roomCode}`);
+    }
 
-      if (freshRoom.game.votes.length >= activePlayers.length) {
-        handleVoteResult(io, roomCode, freshRoom);
-      }
+    // Always resolve voting when timer fires, even if no new votes were added
+    if (freshRoom.game.votes.length >= activePlayers.length) {
+      handleVoteResult(io, roomCode, freshRoom);
     }
   }, VOTE_TIMER_MS);
 }
 
 // ============== VOTE RESULT HANDLER ==============
 function handleVoteResult(io, roomCode, room) {
+  // Guard: game may have been cleaned up
+  if (!room.game) return;
+
   // BUG 1.4 fix: Race condition
   if (room.game._voteProcessing) {
     console.log(`[vote-result] Already processing for room ${roomCode}, skipping duplicate`);
@@ -794,12 +819,19 @@ function handleVoteResult(io, roomCode, room) {
       allClues: room.game.rounds.flatMap((r) => r.clues),
     };
 
-    // DB əməliyyatları (fire-and-forget — game state artıq lazım deyil)
+    // DB əməliyyatları — hər ikisi tamamlanana qədər gözlə, uğursuzluqları log et
     const impostersSnapshot = [...room.game.imposters];
-    saveGameToDB(room, winners, xpDistribution, eliminatedId, wasImposter, voteBreakdown, voteDetails)
-      .catch((err) => console.error("[saveGame] Error:", err.message));
-    updatePlayerXP(xpDistribution, winners, impostersSnapshot)
-      .catch((err) => console.error("[xp-update] Error:", err.message));
+    Promise.allSettled([
+      saveGameToDB(room, winners, xpDistribution, eliminatedId, wasImposter, voteBreakdown, voteDetails),
+      updatePlayerXP(xpDistribution, winners, impostersSnapshot),
+    ]).then((results) => {
+      if (results[0].status === "rejected") {
+        console.error("[saveGame] Failed to save game to DB:", results[0].reason?.message);
+      }
+      if (results[1].status === "rejected") {
+        console.error("[xp-update] Failed to update player XP:", results[1].reason?.message);
+      }
+    });
 
     // Cleanup game state (schedules room.game = null after delay)
     // Mutex flags cleared AFTER cleanupGameState so no new handlers can enter
@@ -830,18 +862,21 @@ function handleVoteResult(io, roomCode, room) {
     // (belə ki handleRoundEnd düzgün işləsin)
     room.game._continuationRoundStart = nextRoundNumber;
 
+    // Clear _voteProcessing now — voting is done
+    room.game._voteProcessing = false;
+    // Keep _roundProcessing = true until the new round actually starts,
+    // so any stray handleRoundEnd calls during the 2s delay are blocked
     setTimeout(() => {
       const freshRoom = rooms.get(roomCode);
       if (!freshRoom || !freshRoom.game) return;
       io.to(roomCode).emit("round:start", freshRoom.game.currentRound);
       startRoundTimer(io, roomCode, freshRoom);
+      freshRoom.game._roundProcessing = false;
     }, ROUND_TRANSITION_DELAY_MS);
   }
 
-  // Mutex təmizlə
-  if (!gameOver) {
-    room.game._voteProcessing = false;
-    room.game._roundProcessing = false;
+  if (gameOver) {
+    // gameOver path: mutexes cleared by cleanupGameState
   }
 }
 

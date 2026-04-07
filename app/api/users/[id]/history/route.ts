@@ -1,14 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB, isDBConnectionError, DB_ERROR_RESPONSE } from "@/lib/mongodb";
 import Game from "@/lib/models/Game";
+import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await connectDB();
     const { id: userId } = await params;
+
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+      return NextResponse.json({ success: false, error: "Giriş tələb olunur" }, { status: 401 });
+    }
+    if (currentUser._id.toString() !== userId) {
+      return NextResponse.json({ success: false, error: "İcazə yoxdur" }, { status: 403 });
+    }
+
+    await connectDB();
 
     const searchParams = request.nextUrl.searchParams;
     const page = Math.max(1, parseInt(searchParams.get("page") || "1"));
@@ -68,7 +78,7 @@ export async function GET(
           category: game.category,
           role: playerRole,
           result: didWin ? "win" : "loss",
-          playerCount: game.players.length || game.imposters.length + 1,
+          playerCount: game.players.length > 0 ? game.players.length : (game.imposters.length + 1),
           xpEarned: myXp,
           date: game.startedAt,
           endedAt: game.endedAt,
@@ -126,10 +136,9 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await connectDB();
     const { id: userId } = await params;
 
-    // JWT token yoxla — authorization header-dən
+    // Auth before DB connection — avoid leaking DB errors to unauthenticated callers
     const authHeader = request.headers.get("authorization");
     if (!authHeader?.startsWith("Bearer ")) {
       return NextResponse.json(
@@ -147,6 +156,7 @@ export async function DELETE(
       );
     }
 
+    await connectDB();
     const result = await Game.deleteMany({ "players.userId": userId });
 
     return NextResponse.json({

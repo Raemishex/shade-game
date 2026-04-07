@@ -34,6 +34,15 @@ async function writeCustomWords(data: CustomWordsData): Promise<void> {
 // GET — bütün custom sözləri al
 export async function GET(request: NextRequest) {
   try {
+    const authHeader = request.headers.get("authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return NextResponse.json({ success: false, error: "Auth tələb olunur" }, { status: 401 });
+    }
+    const { verifyToken } = await import("@/lib/auth");
+    if (!verifyToken(authHeader.slice(7))) {
+      return NextResponse.json({ success: false, error: "Token etibarsızdır" }, { status: 401 });
+    }
+
     const { searchParams } = new URL(request.url);
     const category = searchParams.get("category");
     const approved = searchParams.get("approved");
@@ -62,6 +71,18 @@ export async function GET(request: NextRequest) {
 // POST — yeni custom söz əlavə et
 export async function POST(request: NextRequest) {
   try {
+    // JWT token-dən userId al — body-dən gələn createdBy-a güvənmə
+    const authHeader = request.headers.get("authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return NextResponse.json({ success: false, error: "Auth tələb olunur" }, { status: 401 });
+    }
+    const { verifyToken } = await import("@/lib/auth");
+    const payload = verifyToken(authHeader.slice(7));
+    if (!payload?.userId) {
+      return NextResponse.json({ success: false, error: "Token etibarsızdır" }, { status: 401 });
+    }
+    const createdBy = payload.userId;
+
     const body = await request.json();
 
     if (!body.word || typeof body.word !== "string") {
@@ -71,9 +92,9 @@ export async function POST(request: NextRequest) {
     if (!body.category || typeof body.category !== "string") {
       return NextResponse.json({ success: false, error: "Kateqoriya tələb olunur" }, { status: 400 });
     }
-
-    if (!body.createdBy || typeof body.createdBy !== "string") {
-      return NextResponse.json({ success: false, error: "İstifadəçi ID tələb olunur" }, { status: 400 });
+    const category = body.category.trim().toLowerCase().replace(/[$.]/g, "");
+    if (category.length === 0 || category.length > 50) {
+      return NextResponse.json({ success: false, error: "Kateqoriya 1-50 simvol olmalıdır" }, { status: 400 });
     }
 
     const word = body.word.trim().toLowerCase();
@@ -98,7 +119,7 @@ export async function POST(request: NextRequest) {
 
     // Dublikat yoxlama
     const exists = data.words.some(
-      (w) => w.word === word && w.category === body.category
+      (w) => w.word === word && w.category === category
     );
     if (exists) {
       return NextResponse.json(
@@ -110,8 +131,8 @@ export async function POST(request: NextRequest) {
     const customWord: CustomWord = {
       id: `cw_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
       word,
-      category: body.category,
-      createdBy: body.createdBy,
+      category,
+      createdBy,
       createdAt: new Date().toISOString(),
       approved: true, // avtomatik təsdiq (gələcəkdə moderation əlavə olunacaq)
     };

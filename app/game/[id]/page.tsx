@@ -80,6 +80,7 @@ export default function GamePage() {
 
   const { playGameMusic, playVotingMusic, playFlip, playTimerEnd, playEmoji, stopMusic } = useSound();
   const emojiFloatRef = useRef<EmojiFloatAPI | null>(null);
+  const fs5Active = useMemo(() => isFS5Active(), []);
   const [showCard, setShowCard] = useState(true);
   const [roundTimer, setRoundTimer] = useState(60);
   const [discussionEnded, setDiscussionEnded] = useState(false);
@@ -238,7 +239,7 @@ export default function GamePage() {
       // Öz emojini də göstər
       if (guest) emojiFloatRef.current?.addEmoji(emoji, guest.displayName);
     },
-    [code, guest]
+    [code, guest, playEmoji]
   );
 
   // Detect discussion end → show transition, then voting
@@ -277,7 +278,8 @@ export default function GamePage() {
   const timerMin = Math.floor(timerValue / 60);
   const timerSec = timerValue % 60;
   const timerStr = `${timerMin}:${timerSec.toString().padStart(2, "0")}`;
-  const timerLow = timerValue <= 10;
+  // Discussion: urgency at 15s; round/vote: urgency at 10s
+  const timerLow = isDiscussion ? timerValue <= 15 : timerValue <= 10;
 
   // Header label
   const headerLabel = isDiscussion
@@ -454,7 +456,7 @@ export default function GamePage() {
               : "bg-red/10 text-red border-red/20"
           }`}
         >
-          {getRoleName(wordData.role, isFS5Active())}
+          {getRoleName(wordData.role, fs5Active)}
         </span>
         {wordData.role === "citizen" && wordData.word && (
           <span className="text-[13px] text-cream/60 font-nunito">

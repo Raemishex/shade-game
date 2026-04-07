@@ -73,7 +73,7 @@ export default function ClueSystem({
     setError("");
     setInput("");
     onSubmitClue(trimmed);
-  }, [input, onSubmitClue]);
+  }, [input, onSubmitClue, t]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -85,8 +85,21 @@ export default function ClueSystem({
     [handleSubmit]
   );
 
+  const submittedCount = clues.length;
+  const totalCount = players.length;
+
   return (
     <div className="flex flex-col flex-1">
+      {/* Header: label + readiness counter */}
+      <div className="flex items-center justify-between px-4 pt-3 pb-1">
+        <span className="text-[9px] text-cream/40 tracking-[1.5px] uppercase font-nunito">
+          {t("clue.cluesLabel") || "İpucuları"}
+        </span>
+        <span className="text-[11px] font-medium font-nunito" style={{ color: "#C8A44E" }}>
+          {submittedCount}/{totalCount} {t("clue.ready") || "hazır"}
+        </span>
+      </div>
+
       {/* Clue list */}
       <div ref={listRef} className="flex-1 overflow-y-auto px-4 py-2">
         {/* Previous rounds */}
@@ -164,13 +177,19 @@ export default function ClueSystem({
                       {clue.clue}
                     </motion.span>
                   ) : (
-                    <motion.span
-                      className="text-[11px] text-cream/25 font-nunito"
-                      animate={{ opacity: [0.25, 0.5, 0.25] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      {t("clue.waiting")}
-                    </motion.span>
+                    <span className="inline-flex items-center gap-0.5">
+                      {[0, 0.2, 0.4].map((delay) => (
+                        <motion.span
+                          key={delay}
+                          className="w-1 h-1 rounded-full bg-cream/25 inline-block"
+                          animate={{ opacity: [0.2, 0.7, 0.2] }}
+                          transition={{ duration: 1.2, repeat: Infinity, delay }}
+                        />
+                      ))}
+                      <span className="text-[11px] text-cream/25 font-nunito ml-1">
+                        {t("clue.typing") || "yazır..."}
+                      </span>
+                    </span>
                   )}
                 </div>
               </div>
@@ -192,6 +211,11 @@ export default function ClueSystem({
         )}
 
         <div className="flex gap-2">
+          {!hasSubmitted && (
+            <span className="self-center text-[11px] font-medium font-nunito flex-shrink-0" style={{ color: "#B8D4A8" }}>
+              {t("clue.youLabel") || "SEN:"}
+            </span>
+          )}
           <div className="flex-1 relative">
             <input
               ref={inputRef}

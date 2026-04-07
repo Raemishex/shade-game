@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -29,6 +29,13 @@ export default function EmojiBar({ onSend, disabled = false }: EmojiBarProps) {
   const [bubbles, setBubbles] = useState<BubbleEmoji[]>([]);
   const [cooldown, setCooldown] = useState(false);
   const idCounter = useRef(0);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    return () => {
+      timersRef.current.forEach(clearTimeout);
+    };
+  }, []);
 
   const handleEmoji = useCallback(
     (emoji: string, buttonIndex: number) => {
@@ -43,13 +50,19 @@ export default function EmojiBar({ onSend, disabled = false }: EmojiBarProps) {
       setBubbles((prev) => [...prev.slice(-4), { id, emoji, x }]);
 
       // 1.5s sonra bubble sil
-      setTimeout(() => {
+      const bubbleTimer = setTimeout(() => {
         setBubbles((prev) => prev.filter((b) => b.id !== id));
+        timersRef.current = timersRef.current.filter((t) => t !== bubbleTimer);
       }, 1500);
+      timersRef.current.push(bubbleTimer);
 
       // Rate limit: 3 saniyə cooldown
       setCooldown(true);
-      setTimeout(() => setCooldown(false), 3000);
+      const cooldownTimer = setTimeout(() => {
+        setCooldown(false);
+        timersRef.current = timersRef.current.filter((t) => t !== cooldownTimer);
+      }, 3000);
+      timersRef.current.push(cooldownTimer);
     },
     [onSend, disabled, cooldown]
   );

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB, { isDBConnectionError, DB_ERROR_RESPONSE } from "@/lib/mongodb";
 import User from "@/lib/models/User";
+import Game from "@/lib/models/Game";
 import { getUnlockedBadges } from "@/lib/badges";
 import { getCurrentUser } from "@/lib/auth";
 
@@ -10,6 +11,15 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
+
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+      return NextResponse.json({ error: "Giriş tələb olunur" }, { status: 401 });
+    }
+    if (currentUser._id.toString() !== id) {
+      return NextResponse.json({ error: "Bu əməliyyat üçün icazəniz yoxdur" }, { status: 403 });
+    }
+
     await connectDB();
 
     const user = await User.findById(id).select("-passwordHash");
@@ -79,6 +89,9 @@ export async function PUT(
 
     // Yenilənə bilən sahələr
     if (body.displayName !== undefined) {
+      if (typeof body.displayName !== "string") {
+        return NextResponse.json({ error: "Ad string olmalıdır" }, { status: 400 });
+      }
       const name = body.displayName.trim();
       if (name.length < 2 || name.length > 30) {
         return NextResponse.json({ error: "Ad 2-30 simvol olmalıdır" }, { status: 400 });
@@ -87,13 +100,31 @@ export async function PUT(
     }
 
     if (body.avatarColor !== undefined) {
+      if (typeof body.avatarColor !== "string" || !/^#[0-9A-Fa-f]{6}$/.test(body.avatarColor)) {
+        return NextResponse.json({ error: "Yanlış rəng formatı" }, { status: 400 });
+      }
       user.avatarColor = body.avatarColor;
     }
 
     if (body.settings !== undefined) {
-      if (body.settings.sound !== undefined) user.settings.sound = body.settings.sound;
-      if (body.settings.language !== undefined) user.settings.language = body.settings.language;
-      if (body.settings.theme !== undefined) user.settings.theme = body.settings.theme;
+      if (body.settings.sound !== undefined) {
+        if (typeof body.settings.sound !== "boolean") {
+          return NextResponse.json({ error: "sound boolean olmalıdır" }, { status: 400 });
+        }
+        user.settings.sound = body.settings.sound;
+      }
+      if (body.settings.language !== undefined) {
+        if (!["az", "en"].includes(body.settings.language)) {
+          return NextResponse.json({ error: "language 'az' və ya 'en' olmalıdır" }, { status: 400 });
+        }
+        user.settings.language = body.settings.language;
+      }
+      if (body.settings.theme !== undefined) {
+        if (!["dark", "light"].includes(body.settings.theme)) {
+          return NextResponse.json({ error: "theme 'dark' və ya 'light' olmalıdır" }, { status: 400 });
+        }
+        user.settings.theme = body.settings.theme;
+      }
     }
 
     await user.save();
@@ -132,9 +163,6 @@ export async function DELETE(
     }
 
     await connectDB();
-    const mongoose = await import("mongoose");
-
-    const Game = mongoose.models.Game || mongoose.model("Game", new mongoose.Schema({}, { strict: false }));
     await Game.deleteMany({ "players.userId": id });
 
     await User.findByIdAndDelete(id);

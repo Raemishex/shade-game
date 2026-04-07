@@ -144,12 +144,20 @@ export function useGame(roomCode?: string) {
       });
     }
 
-    function onDiscussionStart(duration: number) {
+    function onDiscussionStart(payload: number | { duration: number; serverTimestamp: number }) {
+      // Supports both legacy (number) and new ({ duration, serverTimestamp }) formats
+      const duration = typeof payload === "number" ? payload : payload.duration;
+      const serverTimestamp = typeof payload === "object" ? payload.serverTimestamp : null;
+
+      // If server sent a timestamp, calculate how much time has already elapsed (for rejoin sync)
+      const elapsed = serverTimestamp ? Math.floor((Date.now() - serverTimestamp) / 1000) : 0;
+      const timeLeft = Math.max(0, duration - elapsed);
+
       setState((prev) => ({
         ...prev,
         isDiscussion: true,
         discussionTime: duration,
-        discussionTimeLeft: duration,
+        discussionTimeLeft: timeLeft,
       }));
     }
 

@@ -10,7 +10,7 @@ export interface IRoomPlayer {
 export interface IRoomSettings {
   category: string;
   rounds: number;
-  discussionTime: 30 | 60 | 90;
+  discussionTime: 0 | 30 | 60 | 90;
   imposterHint: boolean;
 }
 
@@ -78,7 +78,7 @@ const RoomSchema = new Schema<IRoom>(
     settings: {
       category: { type: String, default: "yemekler" },
       rounds: { type: Number, default: 2, min: 1, max: 5 },
-      discussionTime: { type: Number, default: 60, enum: [30, 60, 90] },
+      discussionTime: { type: Number, default: 60, enum: [0, 30, 60, 90] },
       imposterHint: { type: Boolean, default: true },
     },
     status: {

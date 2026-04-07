@@ -45,8 +45,9 @@ export function useSocket(auth?: SocketAuth) {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
       document.removeEventListener("visibilitychange", onVisibilityChange);
+      disconnectSocket();
     };
-  }, [auth?.userId, auth?.displayName, auth?.avatarColor]);
+  }, [auth?.userId, auth?.displayName, auth?.avatarColor, auth?.roomCode]);
 
   const emit = useCallback(
     <E extends keyof ClientToServerEvents>(
@@ -59,7 +60,8 @@ export function useSocket(auth?: SocketAuth) {
   );
 
   return {
-    socket: socketRef.current || getSocket(auth),
+    // Always call getSocket() to get the live singleton rather than a stale ref snapshot
+    get socket() { return socketRef.current || getSocket(auth); },
     isConnected,
     emit,
     connect: () => connectSocket(auth),

@@ -52,8 +52,7 @@ export default function SpectatorView({ roomCode }: SpectatorViewProps) {
     const socket = getSocket();
 
     // Spectator olaraq qoşul
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (socket as any).emit("room:join", { roomCode, isSpectator: true }, (response: { success: boolean }) => {
+    socket.emit("room:join", { roomCode, isSpectator: true }, (response: { success: boolean }) => {
       if (!response?.success) {
         router.push("/home");
       }

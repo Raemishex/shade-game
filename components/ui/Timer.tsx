@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TimerProps {
   seconds: number;
@@ -33,9 +33,14 @@ export default function Timer({
     setIsRunning(true);
   }, [seconds]);
 
+  const onCompleteRef = useRef(onComplete);
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  });
+
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) {
-      if (timeLeft <= 0) onComplete?.();
+      if (timeLeft <= 0) onCompleteRef.current?.();
       return;
     }
 
@@ -50,7 +55,7 @@ export default function Timer({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isRunning, timeLeft, onComplete]);
+  }, [isRunning, timeLeft]);
 
   // Vaxtı format et (MM:SS)
   const minutes = Math.floor(timeLeft / 60);

@@ -264,25 +264,27 @@ export default function ResultScreen({
           </p>
         </motion.div>
 
-        {/* XP section */}
+        {/* XP section — 3 tiles: XP earned / details / result */}
         {myXp && (
           <motion.div
-            className="flex gap-2.5 mb-4"
+            className="flex gap-2 mb-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2 }}
           >
-            <div className="flex-1 py-2.5 px-3 rounded-xl bg-gold/[0.04] border border-gold/10 text-center">
+            {/* Tile 1: XP earned */}
+            <div className="flex-1 py-2.5 px-2 rounded-xl bg-gold/[0.04] border border-gold/10 text-center">
               <p className="text-[16px] font-medium text-gold font-nunito">+{myXp.xp}</p>
               <p className="text-[8px] text-cream/50 tracking-wider uppercase font-nunito mt-0.5">
                 {t("result.xpEarned")}
               </p>
             </div>
+            {/* Tile 2: Breakdown / details */}
             {myXp.breakdown.length > 0 && (
-              <div className="flex-1 py-2.5 px-3 rounded-xl bg-gold/[0.04] border border-gold/10 text-center">
+              <div className="flex-1 py-2.5 px-2 rounded-xl bg-gold/[0.04] border border-gold/10 text-center">
                 <div className="space-y-0.5">
-                  {myXp.breakdown.map((b, i) => (
-                    <p key={i} className="text-[10px] text-gold/70 font-nunito">{b}</p>
+                  {myXp.breakdown.slice(0, 2).map((b, i) => (
+                    <p key={i} className="text-[9px] text-gold/70 font-nunito leading-tight">{b}</p>
                   ))}
                 </div>
                 <p className="text-[8px] text-cream/50 tracking-wider uppercase font-nunito mt-1">
@@ -290,6 +292,15 @@ export default function ResultScreen({
                 </p>
               </div>
             )}
+            {/* Tile 3: Win/loss result */}
+            <div className={`flex-1 py-2.5 px-2 rounded-xl text-center border ${isMyWin ? "bg-green/[0.04] border-green/10" : "bg-red/[0.04] border-red/10"}`}>
+              <p className={`text-[14px] font-medium font-nunito ${isMyWin ? "text-green" : "text-red"}`}>
+                {isMyWin ? "🏆" : "💀"}
+              </p>
+              <p className={`text-[8px] tracking-wider uppercase font-nunito mt-0.5 ${isMyWin ? "text-green/60" : "text-red/60"}`}>
+                {isMyWin ? t("result.win") : t("result.loss")}
+              </p>
+            </div>
           </motion.div>
         )}
 

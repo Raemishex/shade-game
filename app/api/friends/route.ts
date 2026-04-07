@@ -162,9 +162,9 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ success: false, error: "Friend request not found" }, { status: 404 });
     }
 
-    // Check if the user is either the sender or receiver of the friend request
+    // Only the recipient (toId) can accept or reject a friend request
     const friendReq = data.requests[idx];
-    if (friendReq.fromId !== userId && friendReq.toId !== userId) {
+    if (friendReq.toId !== userId) {
       return NextResponse.json({ success: false, error: "You are not authorized to modify this request" }, { status: 403 });
     }
 

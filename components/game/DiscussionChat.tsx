@@ -33,6 +33,14 @@ export default function DiscussionChat({
   const [showClues, setShowClues] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const lastSentRef = useRef(0);
+  const rateLimitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Unmount-da rate limit timer-ini təmizlə
+  useEffect(() => {
+    return () => {
+      if (rateLimitTimerRef.current) clearTimeout(rateLimitTimerRef.current);
+    };
+  }, []);
 
   // Auto-scroll on new message
   useEffect(() => {
@@ -47,7 +55,8 @@ export default function DiscussionChat({
     const now = Date.now();
     if (now - lastSentRef.current < 2000) {
       setRateLimited(true);
-      setTimeout(() => setRateLimited(false), 2000 - (now - lastSentRef.current));
+      if (rateLimitTimerRef.current) clearTimeout(rateLimitTimerRef.current);
+      rateLimitTimerRef.current = setTimeout(() => setRateLimited(false), 2000 - (now - lastSentRef.current));
       return;
     }
 

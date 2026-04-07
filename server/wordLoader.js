@@ -56,8 +56,12 @@ function getRandomWord(categoryId, usedWords = []) {
     }
   }
 
-  // Fallback if no words found
+  // Fallback if no words found — avoid infinite recursion if yemekler also has no words
   if (allWords.length === 0) {
+    if (categoryId === "yemekler") {
+      console.error("[getRandomWord] No words found in fallback category 'yemekler'");
+      return null;
+    }
     console.warn("[getRandomWord] No words found for categories:", catIds, "falling back to yemekler");
     return getRandomWord("yemekler", usedWords);
   }

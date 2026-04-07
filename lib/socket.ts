@@ -35,7 +35,8 @@ export function getSocket(auth?: SocketAuth): TypedSocket {
       auth: auth || {},
     }) as TypedSocket;
   } else if (auth) {
-    (socket as Socket).auth = { ...(socket as Socket).auth, ...auth };
+    // Full replacement to avoid stale fields from previous auth (e.g. old roomCode or userId)
+    (socket as Socket).auth = { ...auth };
   }
   return socket;
 }

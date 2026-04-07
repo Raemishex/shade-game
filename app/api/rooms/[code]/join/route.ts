@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB, { isDBConnectionError, DB_ERROR_RESPONSE } from "@/lib/mongodb";
 import Room from "@/lib/models/Room";
+import { getCurrentUser } from "@/lib/auth";
 
 // POST /api/rooms/[code]/join
 export async function POST(
@@ -8,32 +9,24 @@ export async function POST(
   { params }: { params: { code: string } }
 ) {
   try {
+    // Auth check — userId must match the authenticated user
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+      return NextResponse.json(
+        { success: false, error: "Giriş tələb olunur" },
+        { status: 401 }
+      );
+    }
+
     await connectDB();
 
     const { code } = params;
     const body = await req.json().catch(() => ({}));
-    const { userId, displayName, avatarColor } = body;
+    const { avatarColor } = body;
 
-    // Type validation — injection qarşısını al
-    if (typeof userId !== "string" || typeof displayName !== "string") {
-      return NextResponse.json(
-        { success: false, error: "Yanlış sorğu formatı" },
-        { status: 400 }
-      );
-    }
-    if (userId.length > 50 || displayName.length > 30 || displayName.length < 1) {
-      return NextResponse.json(
-        { success: false, error: "Yanlış məlumat uzunluğu" },
-        { status: 400 }
-      );
-    }
-
-    if (!userId || !displayName) {
-      return NextResponse.json(
-        { success: false, error: "userId və displayName tələb olunur" },
-        { status: 400 }
-      );
-    }
+    // Use authenticated user's data — never trust body for identity
+    const userId = currentUser._id.toString();
+    const displayName = currentUser.displayName;
 
     const room = await Room.findOne({ code: code.toUpperCase() });
 
@@ -79,7 +72,7 @@ export async function POST(
     room.players.push({
       userId,
       displayName,
-      avatarColor: avatarColor || "#C8A44E",
+      avatarColor: avatarColor || currentUser.avatarColor || "#C8A44E",
       isReady: false,
     });
 

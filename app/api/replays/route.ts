@@ -115,6 +115,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (body.winner !== undefined && !["citizens", "imposters"].includes(body.winner)) {
+      return NextResponse.json(
+        { success: false, error: "winner must be 'citizens' or 'imposters'" },
+        { status: 400 }
+      );
+    }
+
+    if (!Array.isArray(body.players)) {
+      return NextResponse.json(
+        { success: false, error: "players must be an array" },
+        { status: 400 }
+      );
+    }
+
     const data = await readReplays();
 
     const replay: GameReplay = {

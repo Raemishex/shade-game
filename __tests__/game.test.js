@@ -327,7 +327,10 @@ describe("game", () => {
       // Müzakirə fazası 60s olduğu üçün discussion:start gözləyirik
       const discussionEvent = roomEvents.find((e) => e.event === "discussion:start");
       expect(discussionEvent).toBeDefined();
-      expect(discussionEvent.data).toBe(60);
+      expect(discussionEvent.data).toEqual(expect.objectContaining({
+        duration: 60,
+        serverTimestamp: expect.any(Number)
+      }));
       // Status otaqda change olunur
     });
 
@@ -360,7 +363,7 @@ describe("game", () => {
 
       // Davam dövrü: round 3
       room.game.currentRound = 3;
-      room.game._continuationRoundStart = 3;
+      room.game._continuationRoundStart = 2; // maxRoundThisCycle = 2 + 1 = 3
       room.game.rounds = [
         { roundNumber: 1, clues: [] },
         { roundNumber: 2, clues: [] },

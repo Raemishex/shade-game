@@ -2,35 +2,28 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB, { isDBConnectionError, DB_ERROR_RESPONSE } from "@/lib/mongodb";
 import Room from "@/lib/models/Room";
 import { generateRoomCode } from "@/lib/generateCode";
+import { getCurrentUser } from "@/lib/auth";
 
 // POST /api/rooms — Yeni otaq yarat
 export async function POST(req: NextRequest) {
   try {
+    // Auth check — hostId must match the authenticated user
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+      return NextResponse.json(
+        { success: false, error: "Giriş tələb olunur" },
+        { status: 401 }
+      );
+    }
+
     await connectDB();
 
     const body = await req.json().catch(() => ({}));
-    const { hostId, displayName, avatarColor, settings } = body;
+    const { avatarColor, settings } = body;
 
-    // Type validation — injection qarşısını al
-    if (typeof hostId !== "string" || typeof displayName !== "string") {
-      return NextResponse.json(
-        { success: false, error: "Yanlış sorğu formatı" },
-        { status: 400 }
-      );
-    }
-    if (hostId.length > 50 || displayName.length > 30 || displayName.length < 1) {
-      return NextResponse.json(
-        { success: false, error: "Yanlış məlumat uzunluğu" },
-        { status: 400 }
-      );
-    }
-
-    if (!hostId || !displayName) {
-      return NextResponse.json(
-        { success: false, error: "hostId və displayName tələb olunur" },
-        { status: 400 }
-      );
-    }
+    // Use authenticated user's data — never trust body for identity
+    const hostId = currentUser._id.toString();
+    const displayName = currentUser.displayName;
 
     // Unikal kod generasiya et
     let code = generateRoomCode();
@@ -53,7 +46,7 @@ export async function POST(req: NextRequest) {
         {
           userId: hostId,
           displayName,
-          avatarColor: avatarColor || "#C8A44E",
+          avatarColor: avatarColor || currentUser.avatarColor || "#C8A44E",
           isReady: true,
         },
       ],
