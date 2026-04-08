@@ -13,6 +13,7 @@ export async function GET() {
       return NextResponse.json({
         success: true,
         user: {
+          username: "guest",
           displayName: "Qonaq",
           isGuest: true,
           xp: 0,
@@ -26,6 +27,7 @@ export async function GET() {
       success: true,
       user: {
         id: user._id,
+        username: user.username,
         displayName: user.displayName,
         email: user.email,
         avatarColor: user.avatarColor,
@@ -35,6 +37,7 @@ export async function GET() {
         badges: user.badges,
         isGuest: user.isGuest,
         settings: user.settings,
+        fs5Active: user.fs5Active,
         createdAt: user.createdAt,
       },
     });

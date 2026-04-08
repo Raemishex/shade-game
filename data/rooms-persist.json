@@ -1,1 +1,32 @@
-{}
+{
+  "RM7WAW": {
+    "code": "RM7WAW",
+    "hostId": "guest_10kzx021gmnpp2581",
+    "players": [
+      {
+        "userId": "guest_10kzx021gmnpp2581",
+        "displayName": "Oyunçu_4868",
+        "avatarColor": "#9B8EC4",
+        "isReady": false,
+        "socketId": "RKMxa-Vw2Afd6DcbAAAB"
+      },
+      {
+        "userId": "guest_da1v2v6plmnpnlyum",
+        "displayName": "Oyunçu_9405",
+        "avatarColor": "#8BC4A0",
+        "isReady": false,
+        "socketId": "Q32cCGYT1DAhE9T2AAAD"
+      }
+    ],
+    "settings": {
+      "category": "yemekler",
+      "rounds": 2,
+      "discussionTime": 60,
+      "imposterHint": true,
+      "imposterCount": 0
+    },
+    "status": "waiting",
+    "usedWords": [],
+    "createdAt": 1775631901126
+  }
+}

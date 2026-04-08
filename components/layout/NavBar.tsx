@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import FoxLogo from "@/components/ui/FoxLogo";
@@ -86,7 +86,18 @@ export default function NavBar() {
     const sm = SoundManager.getInstance();
     const nowMuted = sm.toggleMute();
     setSoundOn(!nowMuted);
+    // Broadcast change
+    window.dispatchEvent(new CustomEvent("shade:sound", { detail: !nowMuted }));
   };
+
+  useEffect(() => {
+    function onSoundChange(e: Event) {
+      const detail = (e as CustomEvent).detail;
+      setSoundOn(detail);
+    }
+    window.addEventListener("shade:sound", onSoundChange);
+    return () => window.removeEventListener("shade:sound", onSoundChange);
+  }, []);
 
   // Oyun ekranları (lobby, game) zamanı nav bar gizlənsin
   if (
