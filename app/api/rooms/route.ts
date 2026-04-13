@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
         {
           userId: hostId,
           displayName,
-          avatarColor: avatarColor || currentUser.avatarColor || "#C8A44E",
+          avatarColor: avatarColor || currentUser?.avatarColor || "#C8A44E",
           isReady: true,
         },
       ],

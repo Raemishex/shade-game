@@ -80,7 +80,7 @@ export async function POST(
     room.players.push({
       userId,
       displayName,
-      avatarColor: avatarColor || currentUser.avatarColor || "#C8A44E",
+      avatarColor: avatarColor || currentUser?.avatarColor || "#C8A44E",
       isReady: false,
     });
 

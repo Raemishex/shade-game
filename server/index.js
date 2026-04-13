@@ -72,6 +72,34 @@ app.get("/health", (_req, res) => {
   res.json({ status: "ok", connections: io.engine.clientsCount });
 });
 
+app.get("/api/guest-stats/:id", (req, res) => {
+  const { rooms } = require("./rooms");
+  const guestUserId = req.params.id;
+  let totalXp = 0;
+  let accumulatedStats = { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 };
+  let found = false;
+
+  for (const [code, room] of rooms.entries()) {
+    const player = room.players.find(p => p.userId === guestUserId);
+    if (player) {
+      found = true;
+      if (player.xp) totalXp += player.xp;
+      if (player.stats) {
+        accumulatedStats.totalGames += player.stats.totalGames || 0;
+        accumulatedStats.wins += player.stats.wins || 0;
+        accumulatedStats.imposterGames += player.stats.imposterGames || 0;
+        accumulatedStats.imposterWins += player.stats.imposterWins || 0;
+      }
+    }
+  }
+
+  if (found) {
+    res.json({ success: true, xp: totalXp, stats: accumulatedStats });
+  } else {
+    res.json({ success: false, error: "Guest not found in active rooms" });
+  }
+});
+
 // ============== AUTHENTICATION ==============
 const jwt = require("jsonwebtoken");
 

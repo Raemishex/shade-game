@@ -805,6 +805,25 @@ function handleVoteResult(io, roomCode, room) {
         breakdown.push("Sağ qalma +10");
       }
 
+      // Accumulate stats for guests right in the room.players memory
+      const roomPlayer = room.players.find((rp) => rp.userId === p.userId);
+      if (roomPlayer) {
+        roomPlayer.xp = (roomPlayer.xp || 0) + xp;
+        if (!roomPlayer.stats) {
+          roomPlayer.stats = { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 };
+        }
+        roomPlayer.stats.totalGames += 1;
+        const playerIsWinner = (winners === "citizens" && !isImposter) || (winners === "imposters" && isImposter);
+        
+        if (playerIsWinner) {
+          roomPlayer.stats.wins += 1;
+        }
+        if (isImposter) {
+          roomPlayer.stats.imposterGames += 1;
+          if (playerIsWinner) roomPlayer.stats.imposterWins += 1;
+        }
+      }
+
       return { userId: p.userId, displayName: p.displayName, xp, breakdown };
     });
 

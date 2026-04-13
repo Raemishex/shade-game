@@ -81,6 +81,29 @@ export async function POST(req: NextRequest) {
     // Guest istifadəçi varsa — hesaba çevir
     // guestUserId həm ObjectId həm də "guest_" formatında ola bilər
     const isObjectId = /^[0-9a-fA-F]{24}$/.test(guestUserId);
+    
+    // Fetch guest stats from socket server if it's a guest_ ID
+    let guestStats = null;
+    let guestXp = 0;
+    
+    if (guestUserId && guestUserId.startsWith("guest_")) {
+      try {
+        const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || "http://127.0.0.1:3001";
+        // Remove trailing slash if exists
+        const baseUrl = socketUrl.replace(/\/$/, "");
+        const res = await fetch(`${baseUrl}/api/guest-stats/${guestUserId}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            guestXp = data.xp || 0;
+            guestStats = data.stats;
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch guest stats from socket server:", err);
+      }
+    }
+
     if (guestUserId && (isObjectId || guestUserId.startsWith("guest_"))) {
       if (isObjectId) {
         user = await User.findById(guestUserId).catch(() => null);
@@ -95,6 +118,17 @@ export async function POST(req: NextRequest) {
         user.passwordHash = passwordHash;
         user.isGuest = false;
         user.lastLoginAt = new Date();
+        
+        // Merge fetched stats
+        if (guestXp > 0) user.xp = (user.xp || 0) + guestXp;
+        if (guestStats) {
+          if (!user.stats) user.stats = { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 };
+          user.stats.totalGames = (user.stats.totalGames || 0) + (guestStats.totalGames || 0);
+          user.stats.wins = (user.stats.wins || 0) + (guestStats.wins || 0);
+          user.stats.imposterGames = (user.stats.imposterGames || 0) + (guestStats.imposterGames || 0);
+          user.stats.imposterWins = (user.stats.imposterWins || 0) + (guestStats.imposterWins || 0);
+        }
+        
         await user.save();
       } else {
         // Guest DB-də yoxdursa (socket server-də yaradılıb), yeni hesab yarad
@@ -114,6 +148,8 @@ export async function POST(req: NextRequest) {
         passwordHash,
         isGuest: false,
         lastLoginAt: new Date(),
+        xp: guestXp,
+        stats: guestStats || { totalGames: 0, wins: 0, imposterGames: 0, imposterWins: 0 },
       });
     }
 
