@@ -16,22 +16,46 @@ export default function CreateLobbyPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [step, setStep] = useState<"name" | "creating">("name");
+  // Qonaq istifadəçi əvvəldən ad daxil edibsə, avtomatik skip et
+  const [autoStarting, setAutoStarting] = useState(false);
 
   useEffect(() => {
     const guest = getGuestUser();
     if (guest.displayName && guest.displayName !== "Oyunçu") {
       setName(guest.displayName);
+      // Əgər qonaq artıq ad daxil edibsə, avtomatik otaq yarat
+      // İlk dəfə gələnlər üçün "Oyunçu_XXXX" formatında ad olacaq
+    }
+
+    // Əgər qonaq ad daxil etməyibsə belə, avtomatik yaradılmış adla davam et
+    // Beləliklə, qonaqlar heç bir addım olmadan oyuna daxil ola bilərlər
+    if (guest.displayName && guest.displayName.length >= 2) {
+      setAutoStarting(true);
     }
   }, []);
 
-  async function handleCreate() {
+  // Avtomatik start: əgər qonağın artıq adı varsa, birbaşa otaq yarat
+  useEffect(() => {
+    if (autoStarting && name.length >= 2) {
+      handleCreate(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStarting, name]);
+
+  async function handleCreate(isAutoStart = false) {
     const trimmed = name.trim();
     if (trimmed.length < 2) {
-      setError(t("lobbyCreate.nameMinError"));
+      if (!isAutoStart) {
+        setError(t("lobbyCreate.nameMinError"));
+      }
+      setAutoStarting(false);
       return;
     }
     if (trimmed.length > 20) {
-      setError(t("lobbyCreate.nameMaxError"));
+      if (!isAutoStart) {
+        setError(t("lobbyCreate.nameMaxError"));
+      }
+      setAutoStarting(false);
       return;
     }
 
@@ -69,6 +93,7 @@ export default function CreateLobbyPage() {
         setError(data.error || t("lobbyCreate.createFailed"));
         setStep("name");
         setLoading(false);
+        setAutoStarting(false);
       }
     } catch {
       // Server/timeout xətası — lokal kod ilə davam et
@@ -84,7 +109,7 @@ export default function CreateLobbyPage() {
     if (e.key === "Enter") handleCreate();
   }
 
-  if (step === "creating") {
+  if (step === "creating" || autoStarting) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-dark px-6">
         <FoxLogo size={80} className="mb-6" />
@@ -147,7 +172,7 @@ export default function CreateLobbyPage() {
           size="lg"
           fullWidth
           loading={loading}
-          onClick={handleCreate}
+          onClick={() => handleCreate()}
           disabled={name.trim().length < 2}
         >
           {t("lobbyCreate.create")}

@@ -228,7 +228,12 @@
     "serverError": "Serverlə əlaqə qurula bilmədi",
     "cancel": "Ləğv et",
     "join": "Qoşul",
-    "pasteHint": "Kod yapışdırmaq üçün Ctrl+V istifadə et"
+    "pasteHint": "Kod yapışdırmaq üçün Ctrl+V istifadə et",
+    "joiningRoom": "Otağa qoşulursunuz",
+    "room": "Otaq",
+    "yourName": "Sənin adın",
+    "joinButton": "Qoşul",
+    "backToHome": "Ana ekrana qayıt"
   },
   "fs5": {
     "title": "FS5 Modu",

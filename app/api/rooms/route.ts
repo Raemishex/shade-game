@@ -7,23 +7,31 @@ import { getCurrentUser } from "@/lib/auth";
 // POST /api/rooms — Yeni otaq yarat
 export async function POST(req: NextRequest) {
   try {
-    // Auth check — hostId must match the authenticated user
     const currentUser = await getCurrentUser();
-    if (!currentUser) {
-      return NextResponse.json(
-        { success: false, error: "Giriş tələb olunur" },
-        { status: 401 }
-      );
+    const body = await req.json().catch(() => ({}));
+    
+    // Auth check — use authenticated user if present, otherwise trust body (guest)
+    let hostId: string;
+    let displayName: string;
+    const avatarColor = body.avatarColor || "#C8A44E";
+    const settings = body.settings;
+
+    if (currentUser) {
+      hostId = currentUser._id.toString();
+      displayName = currentUser.displayName;
+    } else {
+      // Guest
+      if (!body.hostId || !body.displayName) {
+        return NextResponse.json(
+          { success: false, error: "Giriş tələb olunur" },
+          { status: 401 }
+        );
+      }
+      hostId = body.hostId;
+      displayName = body.displayName;
     }
 
     await connectDB();
-
-    const body = await req.json().catch(() => ({}));
-    const { avatarColor, settings } = body;
-
-    // Use authenticated user's data — never trust body for identity
-    const hostId = currentUser._id.toString();
-    const displayName = currentUser.displayName;
 
     // Unikal kod generasiya et
     let code = generateRoomCode();

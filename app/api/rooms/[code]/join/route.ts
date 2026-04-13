@@ -9,24 +9,32 @@ export async function POST(
   { params }: { params: { code: string } }
 ) {
   try {
-    // Auth check — userId must match the authenticated user
     const currentUser = await getCurrentUser();
-    if (!currentUser) {
-      return NextResponse.json(
-        { success: false, error: "Giriş tələb olunur" },
-        { status: 401 }
-      );
-    }
-
+    
     await connectDB();
 
     const { code } = params;
     const body = await req.json().catch(() => ({}));
-    const { avatarColor } = body;
+    const avatarColor = body.avatarColor || "#C8A44E";
 
-    // Use authenticated user's data — never trust body for identity
-    const userId = currentUser._id.toString();
-    const displayName = currentUser.displayName;
+    // Auth check — use authenticated user if present, otherwise trust body (guest)
+    let userId: string;
+    let displayName: string;
+
+    if (currentUser) {
+      userId = currentUser._id.toString();
+      displayName = currentUser.displayName;
+    } else {
+      // Guest
+      if (!body.userId || !body.displayName) {
+        return NextResponse.json(
+          { success: false, error: "Giriş tələb olunur" },
+          { status: 401 }
+        );
+      }
+      userId = body.userId;
+      displayName = body.displayName;
+    }
 
     const room = await Room.findOne({ code: code.toUpperCase() });
 

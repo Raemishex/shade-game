@@ -1,6 +1,7 @@
 // Guest user — localStorage-da saxlanır, qeydiyyatsız oynaya bilər
 
 const GUEST_KEY = "shade_guest";
+const GUEST_INITIALIZED_KEY = "shade_guest_initialized";
 
 export interface GuestUser {
   userId: string;
@@ -26,6 +27,23 @@ function generateGuestName(): string {
   // Random 4 rəqəmli ad yarat: Oyunçu_XXXX
   const num = Math.floor(1000 + Math.random() * 9000);
   return `Oyunçu_${num}`;
+}
+
+/**
+ * İlk dəfə daxil olan istifadəçi olub-olmadığını yoxla
+ */
+export function isFirstVisit(): boolean {
+  if (typeof window === "undefined") return true;
+  return !localStorage.getItem(GUEST_INITIALIZED_KEY);
+}
+
+/**
+ * İlk ziyarət bayrağını təyin et (artıq ilk dəfə deyil)
+ */
+export function markInitialized(): void {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(GUEST_INITIALIZED_KEY, "true");
+  }
 }
 
 export function getGuestUser(): GuestUser {
@@ -54,6 +72,8 @@ export function getGuestUser(): GuestUser {
     avatarColor: randomColor(),
   };
   localStorage.setItem(GUEST_KEY, JSON.stringify(guest));
+  // İlk dəfə yaradıldıqda qeyd et
+  markInitialized();
   return guest;
 }
 
@@ -64,4 +84,14 @@ export function updateGuestName(name: string): GuestUser {
     localStorage.setItem(GUEST_KEY, JSON.stringify(guest));
   }
   return guest;
+}
+
+/**
+ * Qonaq profilini sıfırla (test/debug üçün)
+ */
+export function clearGuestData(): void {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem(GUEST_KEY);
+    localStorage.removeItem(GUEST_INITIALIZED_KEY);
+  }
 }

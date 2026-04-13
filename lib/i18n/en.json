@@ -228,7 +228,12 @@
     "serverError": "Could not connect to server",
     "cancel": "Cancel",
     "join": "Join",
-    "pasteHint": "Use Ctrl+V to paste code"
+    "pasteHint": "Use Ctrl+V to paste code",
+    "joiningRoom": "Joining room",
+    "room": "Room",
+    "yourName": "Your name",
+    "joinButton": "Join",
+    "backToHome": "Back to home"
   },
   "fs5": {
     "title": "FS5 Mode",

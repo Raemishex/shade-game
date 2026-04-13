@@ -6,27 +6,48 @@ import { motion } from "framer-motion";
 import FoxLogo from "@/components/ui/FoxLogo";
 import { Button } from "@/components/ui";
 import { getGuestUser, updateGuestName } from "@/lib/guest";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function JoinByLinkPage() {
   const router = useRouter();
   const params = useParams();
+  const { t } = useTranslation();
   const code = (params.code as string)?.toUpperCase();
 
   const [status, setStatus] = useState<"name" | "joining" | "error">("name");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  // Qonaq istifadəçi əvvəldən ad daxil edibsə, avtomatik qoşulsun
+  const [autoJoining, setAutoJoining] = useState(false);
 
   useEffect(() => {
     const guest = getGuestUser();
     if (guest.displayName && guest.displayName !== "Oyunçu") {
       setName(guest.displayName);
     }
+
+    // Əgər qonaqda artıq etibarlı ad varsa (Oyunçu_XXXX daxil), avtomatik qoşul
+    if (guest.displayName && guest.displayName.length >= 2) {
+      setName(guest.displayName);
+      setAutoJoining(true);
+    }
   }, []);
 
-  async function handleJoin() {
+  // Avtomatik qoşulma: ad hazır olduqda birbaşa lobbiyə keç
+  useEffect(() => {
+    if (autoJoining && name.length >= 2) {
+      handleJoin(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoJoining, name]);
+
+  async function handleJoin(isAutoJoin = false) {
     const trimmed = name.trim();
     if (trimmed.length < 2) {
-      setError("Ad minimum 2 simvol olmalıdır");
+      if (!isAutoJoin) {
+        setError(t("join.nameMinError") || "Ad minimum 2 simvol olmalıdır");
+      }
+      setAutoJoining(false);
       return;
     }
 
@@ -51,17 +72,19 @@ export default function JoinByLinkPage() {
       if (data.success) {
         router.push(`/lobby/${code}`);
       } else {
-        setError(data.error || "Qoşulma uğursuz oldu");
+        setError(data.error || t("join.joinFailed") || "Qoşulma uğursuz oldu");
         setStatus("error");
+        setAutoJoining(false);
       }
     } catch {
-      setError("Serverlə əlaqə qurula bilmədi");
-      setStatus("error");
+      // Server əlaqəsi uğursuz oldu — birbaşa lobbiyə yönləndir
+      // (socket.io oradan birbaşa qoşula bilər)
+      router.push(`/lobby/${code}`);
     }
   }
 
   // Joining animation
-  if (status === "joining") {
+  if (status === "joining" || autoJoining) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-dark px-6">
         <FoxLogo size={80} className="mb-6" />
@@ -70,7 +93,9 @@ export default function JoinByLinkPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <span className="text-cream/60 text-lg font-nunito">Otağa qoşulursunuz</span>
+          <span className="text-cream/60 text-lg font-nunito">
+            {t("join.joiningRoom") || "Otağa qoşulursunuz"}
+          </span>
           <motion.span
             className="text-gold text-lg"
             animate={{ opacity: [1, 0.3, 1] }}
@@ -101,20 +126,24 @@ export default function JoinByLinkPage() {
     >
       <FoxLogo size={64} className="mb-4" />
 
-      <h1 className="text-xl font-bold text-cream mb-1 font-nunito">Oyuna qoşul</h1>
+      <h1 className="text-xl font-bold text-cream mb-1 font-nunito">
+        {t("join.title") || "Oyuna qoşul"}
+      </h1>
       <p className="text-gold/60 text-sm font-nunito tracking-wider mb-6">
-        Otaq: {code}
+        {t("join.room") || "Otaq"}: {code}
       </p>
 
       <div className="w-full max-w-sm space-y-4">
         <div>
-          <label className="block text-cream/70 text-sm mb-1.5 font-nunito">Sənin adın</label>
+          <label className="block text-cream/70 text-sm mb-1.5 font-nunito">
+            {t("join.yourName") || "Sənin adın"}
+          </label>
           <input
             type="text"
             value={name}
             onChange={(e) => { setName(e.target.value); setError(""); }}
             onKeyDown={(e) => e.key === "Enter" && handleJoin()}
-            placeholder="Adını yaz..."
+            placeholder={t("join.namePlaceholder") || "Adını yaz..."}
             maxLength={20}
             autoFocus
             className="w-full bg-white/5 border border-white/10 focus:border-gold/50 rounded-xl px-4 py-3 text-cream placeholder-cream/30 font-nunito outline-none transition-colors"
@@ -135,10 +164,10 @@ export default function JoinByLinkPage() {
           variant="primary"
           size="lg"
           fullWidth
-          onClick={handleJoin}
+          onClick={() => handleJoin()}
           disabled={name.trim().length < 2}
         >
-          Qoşul
+          {t("join.joinButton") || "Qoşul"}
         </Button>
 
         <Button
@@ -147,7 +176,7 @@ export default function JoinByLinkPage() {
           fullWidth
           onClick={() => router.push("/home")}
         >
-          Ana ekrana qayıt
+          {t("join.backToHome") || "Ana ekrana qayıt"}
         </Button>
       </div>
     </motion.div>
